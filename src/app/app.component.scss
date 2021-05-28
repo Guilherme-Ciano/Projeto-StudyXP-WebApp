@@ -1,0 +1,34 @@
+.background_gradient{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 100%;
+
+    background-image: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
+}
+
+Header {
+    display: block;
+    background-color: var(--white);
+    font-family: monospace;
+    
+    h1 {
+        font-family: 'Martel', serif;
+        font-size: 24pt;
+        padding-top: 3px;
+        margin-top: 0;
+        margin-bottom: -10px;
+        color: black;
+    }
+    
+    h3 {
+        font-size: 14pt;
+        font-family: 'Lobster', cursive;
+        font-weight: lighter;
+        background-color: var(--white);
+        color: black;
+    }
+}

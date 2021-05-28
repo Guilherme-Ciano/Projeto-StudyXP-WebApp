@@ -1,0 +1,51 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10rem;
+
+    img {
+        width: 22rem;
+    }
+
+    /* Parte lateral de inputs */
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+        margin: 2rem;
+        margin-right: -5rem;
+
+        justify-content: center;
+        background-color: var(--white);
+        border-radius: 8px;
+        padding: 1rem;
+
+        h1{
+            font-family: 'Martel', serif;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 2rem;
+            width: 100%
+    
+        }
+
+        h3 {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        a {
+            text-align: center;
+            color: blue;
+        }
+    }
+    
+    /* Botões */
+    button{
+        width: 100%;
+    }
+}

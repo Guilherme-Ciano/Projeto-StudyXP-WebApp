@@ -1,0 +1,27 @@
+<main>
+    <img src="../assets/Logo_Study.png" alt="Logo" />
+    <div id="lineUp" display="true" ></div>
+    
+    <div class="right_section">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h1>Login</h1>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email">
+                
+                <mat-error>Email não foi preenchido ou é inválido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Senha</mat-label>
+                <input type="email" matInput formControlName="email">
+                
+                <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" class="button" type="submit">Entrar</button>
+            <h3>Ainda não é cadastrado? Cadastre-se <a href="/cadastro">agora</a></h3>
+        </form>
+
+    </div>
+</main>

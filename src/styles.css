@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+:root .dark{
+    --white: #181818;
+    --gray: #e6e6e6;
+
+    --color_init_blue: #172746;
+    --color_end_blue: #09386d;
+
+    --color_init_red: #FFDA33;
+    --color_end_red: #FD5720;
+
+    --contrast-background-color: #383838;
+    --contrast-input-color: #4A4A4A;
+
+    --login_aluno: #3F3F78;
+    --sing_in_aluno: #6b818c;
+    
+    --grad_green: #0cac5e;
+    --grad_end_green: #71f79f;
+
+    --pink: #EF476F;
+    --light-blue: #C3DFE0;
+    --blue: #1768AC;
+    --dark-blue: #03256C;
+}
+
+:root {
+    --white: #F5F5F5;
+    --gray: #e6e6e6;
+
+    --color_init_blue: #5070B1;
+    --color_end_blue: #AFF4D4;
+
+    --color_init_red: #FFDA33;
+    --color_end_red: #FD5720;
+
+    --contrast-background-color: #383838;
+    --contrast-input-color: #4A4A4A;
+
+    --login_aluno: #3F3F78;
+    --sing_in_aluno: #6b818c;
+    
+    --grad_green: #0cac5e;
+    --grad_end_green: #71f79f;
+
+    --pink: #EF476F;
+    --light-blue: #C3DFE0;
+    --blue: #1768AC;
+    --dark-blue: #03256C;
+    --font-family: 'Poppins', sans-serif; 
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

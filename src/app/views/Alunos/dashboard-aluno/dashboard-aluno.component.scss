@@ -1,0 +1,189 @@
+.wrapper {
+    width: 99%;
+    padding: 0.5rem;
+}
+
+.header-pannel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    mat-card {
+        display: flex;
+        flex-direction: row;
+    
+        width: 100%;
+        margin: 0.5rem;
+    
+        align-items: center;
+    
+        background-color: aliceblue;
+
+        .avatar-icon{
+            height: 5rem;
+            width: 5rem;
+
+            margin-right: 1rem;
+
+            background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+            background-size: cover;
+        }
+    
+        mat-card-title {
+            width: 50%;
+            h1 {
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight: 200;
+                margin: 0;
+    
+            }
+            
+            h3 {
+                margin: 0;
+            }
+        }
+    
+        mat-card-subtitle {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            h2 {
+                margin: 0;
+            }
+        }
+    }
+    
+    mat-card.animated-card {
+        width: 100%;
+        align-content: center;
+        background-image: linear-gradient(-45deg, var(--blue), var(--light-blue));
+        height: 7rem;
+    
+        mat-icon {
+            position: relative;
+            top: -1.2rem;
+            font-size: 4rem;
+            bottom: 1.6rem;
+            color: #fefefe59;
+        }
+    
+        .content {
+            display: flex;
+            flex-direction: column;
+    
+            align-content: center;
+    
+            margin-left: 80%;
+    
+            mat-card-title{
+                color: rgb(255, 255, 255);
+                text-align: center;
+                align-content: center;
+                justify-content: center;
+                margin: 0;
+                margin-bottom: 1rem;
+                margin-top: 1.3rem;
+    
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 300;
+                    margin: 0;
+                    margin-left: -30px;
+                    margin-top: 40%;
+                }
+            }
+    
+            mat-card-subtitle{
+                color: rgb(255, 255, 255);
+                position: relative;
+                right: 2.5rem;
+                top: -20px;
+                font-style: italic;
+                text-transform: capitalize;
+                opacity: 0.5;
+                display: block;
+                font-size: 0.6rem;
+            }
+        }
+    }
+}
+
+.act-pannel{
+    display: flex;
+    flex-direction: column;
+    width: 99%;
+
+    mat-expansion-panel{
+        width: 100%;
+        margin: 0.5rem;
+    
+        align-items: center;
+    
+        background-color: aliceblue;
+
+        h1 {
+            margin: 0;
+        }
+
+        .anexos {
+            display: flex;
+            flex-direction: row;
+
+            .anexo_card{
+                width: 10%;
+                display: flex;
+                flex-direction: row;
+                background-color: rgb(94, 149, 204);
+
+                margin-right: .5rem;
+
+                padding: .1rem;
+                border-radius: 1rem;
+
+                font-size: 5pt;
+                
+                justify-content: center;
+                align-content: center;
+
+                color: white;
+
+                h4 {
+                    margin: 0;
+                }
+            }
+        }
+
+        .buttons_box {
+            display: flex;
+            flex-direction: row;
+            width: 20%;
+            margin-left: 80%;
+
+            button {
+                padding: .5rem;
+                width: 100%;
+
+                border-radius: .1rem;
+                border: none;
+
+                font-weight: 200;
+                font-size: 12pt;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                color: aliceblue;
+
+                cursor: pointer;
+            }
+
+            button#anx{
+                background-color: var(--blue);
+                margin-right: 5px;
+            }
+
+            button#fim{
+                background-color: var(--dark-blue);
+            }
+        }
+    }
+}

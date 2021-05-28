@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <img src="/assets/cadastro.svg" class="bg-image">
+  <form class="mat-typography form" [formGroup]="formCadastroAluno" (ngSubmit)="fazerCadastroAluno()">
+    <h1 class="mat-typography">Cadastre-se</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput formControlName="Nome">
+        
+      <mat-error>Nome não foi preenchido</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="Email">
+      
+      <mat-error>Email não foi preenchido ou é inválido</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input type="tel" matInput formControlName="Phone" mask="(00) 00000-0000">
+      
+      <mat-error>Celular não foi preenchido ou é inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>RA</mat-label>
+      <input type="text" matInput formControlName="RA" mask="000.000.000-0">
+      
+      <mat-error>RA não foi preenchido ou é inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input type="text" matInput formControlName="Password">
+      
+      <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ano</mat-label>
+      <input type="text" matInput formControlName="Grade">
+      
+      <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="button" type="submit" [disabled]="!formCadastroAluno.valid">Cadastrar-se</button>
+  </form>
+</div>
