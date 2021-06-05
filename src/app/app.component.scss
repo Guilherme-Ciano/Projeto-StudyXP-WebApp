@@ -10,25 +10,39 @@
     background-image: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }
 
-Header {
-    display: block;
+Header.navbar {
+    display: flex;
+    flex-direction: row;
     background-color: var(--white);
-    font-family: monospace;
+    padding: 0;
+    height: 3rem;
     
-    h1 {
-        font-family: 'Martel', serif;
-        font-size: 24pt;
-        padding-top: 3px;
-        margin-top: 0;
-        margin-bottom: -10px;
-        color: black;
-    }
-    
-    h3 {
-        font-size: 14pt;
-        font-family: 'Lobster', cursive;
-        font-weight: lighter;
-        background-color: var(--white);
-        color: black;
+    .buttons-wrapper{
+        width: 100%;
+        height: 100%;
+        align-content: center;
+        display: flex;
+
+        .button{
+            width: 4%;
+            justify-content: space-around;
+            align-content: center;
+            text-align: center;
+            margin-left: 5px;
+
+            mat-icon{
+                width: 100%;
+                height: 95%;
+                font-size: 2rem;
+                padding: 0.3rem;
+                color: var(--contrast-background-color);
+                transition: 100ms;
+
+                &:hover {
+                    color: var(--blue);
+                    border-bottom: 2.5px solid var(--blue);
+                }
+            }
+        }
     }
 }

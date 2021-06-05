@@ -39,9 +39,14 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Ano</mat-label>
-      <input type="text" matInput formControlName="Grade">
+
+      <mat-select [disabled]="disableSelect.value">
+        <mat-option value="1">1° ano</mat-option>
+        <mat-option value="2">2° ano</mat-option>
+        <mat-option value="3">3° ano</mat-option>
+      </mat-select>
       
-      <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+      <mat-error>Ano não foi preenchido ou é inválido</mat-error>
     </mat-form-field>
 
     <button mat-flat-button color="primary" class="button" type="submit" [disabled]="!formCadastroAluno.valid">Cadastrar-se</button>

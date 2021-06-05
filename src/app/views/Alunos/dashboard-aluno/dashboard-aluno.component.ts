@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { API_Return } from './../../../model/API';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -8,6 +10,11 @@ import { API_Return } from './../../../model/API';
   styleUrls: ['./dashboard-aluno.component.scss']
 })
 export class DashboardAlunoComponent implements OnInit {
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'determinate';
+  value = 100;
+  level = 10;
 
   user = {
     Nome: localStorage.getItem('Nome'),

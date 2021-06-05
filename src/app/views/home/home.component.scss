@@ -1,9 +1,15 @@
+
+mat-grid-tile {
+    background: lightblue;
+}
+
 main {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-top: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 15rem;
 
     img {
         width: 22rem;
@@ -47,5 +53,63 @@ main {
     /* Botões */
     button{
         width: 100%;
+    }
+}
+
+.sobre{
+    mat-card{
+        display: flex;
+        flex-direction: row;
+
+        padding: 5rem;
+
+        img {
+            height: 35rem;
+            width: 35rem;
+            margin: 2rem;
+            margin-right: 5rem;
+            background-color: var(--gray);
+            padding: 4rem;
+            border-radius: 8px;
+        }
+
+        .mat-content {
+            padding: 1rem;
+            
+            &:hover {
+                border: 2.5px solid var(--blue);
+                border-radius: 8px;
+            }
+
+            mat-card-title{
+                font-family: var(--font-family);
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 3.5rem;
+                width: 100%;
+            }
+    
+            mat-card-content{
+                display: flex;
+                flex-direction: column;
+                width: 30rem;
+                margin: 1rem;
+    
+                justify-content: center;
+                border-radius: 8px;
+                padding: 1rem;
+    
+                h3 {
+                    font-family: var(--font-family);
+                    font-weight: 200;
+                    display: flex;
+                    font-size: 1.5rem;
+                    width: 100%
+                }
+            }
+        }
     }
 }

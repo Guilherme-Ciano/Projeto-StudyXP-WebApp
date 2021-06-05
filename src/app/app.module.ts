@@ -6,11 +6,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 
 import { AppComponent } from './app.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
@@ -21,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
+import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
     DashboardProfComponent,
     ConfigAlunosComponent,
     ConfigProfComponent,
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,12 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatButtonModule,
+    MatTabsModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,7 +27,7 @@
 
 :root {
     --white: #F5F5F5;
-    --gray: #e6e6e6;
+    --gray: #eeeeee;
 
     --color_init_blue: #5070B1;
     --color_end_blue: #AFF4D4;
@@ -46,7 +46,7 @@
 
     --pink: #EF476F;
     --light-blue: #C3DFE0;
-    --blue: #1768AC;
+    --blue: #3f51b5;
     --dark-blue: #03256C;
     --font-family: 'Poppins', sans-serif; 
 }

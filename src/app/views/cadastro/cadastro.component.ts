@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ import axios from 'axios';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
-
+  disableSelect = new FormControl(false);
   formCadastroAluno: FormGroup;
   formCadastroProfessor: FormGroup;
 

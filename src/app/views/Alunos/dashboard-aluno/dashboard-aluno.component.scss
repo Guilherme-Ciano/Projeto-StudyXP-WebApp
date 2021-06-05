@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 7rem;
 
     mat-card {
         display: flex;
@@ -45,6 +46,7 @@
     
         mat-card-subtitle {
             width: 50%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -52,59 +54,27 @@
             h2 {
                 margin: 0;
             }
-        }
-    }
-    
-    mat-card.animated-card {
-        width: 100%;
-        align-content: center;
-        background-image: linear-gradient(-45deg, var(--blue), var(--light-blue));
-        height: 7rem;
-    
-        mat-icon {
-            position: relative;
-            top: -1.2rem;
-            font-size: 4rem;
-            bottom: 1.6rem;
-            color: #fefefe59;
-        }
-    
-        .content {
-            display: flex;
-            flex-direction: column;
-    
-            align-content: center;
-    
-            margin-left: 80%;
-    
-            mat-card-title{
-                color: rgb(255, 255, 255);
-                text-align: center;
-                align-content: center;
-                justify-content: center;
-                margin: 0;
-                margin-bottom: 1rem;
-                margin-top: 1.3rem;
-    
-                h2 {
-                    font-size: 2.5rem;
-                    font-weight: 300;
-                    margin: 0;
-                    margin-left: -30px;
-                    margin-top: 40%;
-                }
-            }
-    
-            mat-card-subtitle{
-                color: rgb(255, 255, 255);
+
+            #level_Number {
                 position: relative;
-                right: 2.5rem;
-                top: -20px;
-                font-style: italic;
-                text-transform: capitalize;
-                opacity: 0.5;
-                display: block;
-                font-size: 0.6rem;
+                left: 0rem;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+        }
+
+        .mat-progress-spinner {
+            height: 60px;
+            width: 60px;
+
+            svg {
+                height: 60px;
+                width: 60px;
+
+                circle {
+                    height: 60px;
+                    width: 60px;
+                }
             }
         }
     }
