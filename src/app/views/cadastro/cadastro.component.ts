@@ -12,6 +12,8 @@ export class CadastroComponent implements OnInit {
   disableSelect = new FormControl(false);
   formCadastroAluno: FormGroup;
   formCadastroProfessor: FormGroup;
+  option = "1";
+  optionGroup = "formCadastroAluno";
 
   constructor(
     private fb: FormBuilder,
@@ -37,29 +39,46 @@ export class CadastroComponent implements OnInit {
     })
   }
 
-  async fazerCadastroAluno(){
-    const aluno = {
-      nome: this.formCadastroAluno.value.Nome,
-      email: this.formCadastroAluno.value.Email,
-      password: this.formCadastroAluno.value.Password,
-      phone: this.formCadastroAluno.value.Phone,
-      ra: this.formCadastroAluno.value.RA,
-      grade: Number(this.formCadastroAluno.value.Grade),
+  changeCadastro(){
+    console.log(this.option);
+    if (this.option === "1"){
+      document.getElementById("COD").style.display = "none";
+      document.getElementById("RA").style.display = "block";
+      document.getElementById("ANO").style.display = "block";
+      this.optionGroup = "formCadastroAluno";
+    } else {
+      document.getElementById("RA").style.display = "none";
+      document.getElementById("ANO").style.display = "none";
+      document.getElementById("COD").style.display = "block";
+      this.optionGroup = "formCadastroProfessor";
     }
-    await axios.post("http://localhost:9090/alunos/create", aluno)
-    this.router.navigate(['/'])
   }
 
-  async fazerCadastroProfessor(){
-    const professor = {
-      nome: this.formCadastroAluno.value.Nome,
-      email: this.formCadastroAluno.value.Email,
-      password: this.formCadastroAluno.value.Password,
-      phone: this.formCadastroAluno.value.Phone,
-      codEscola: this.formCadastroAluno.value.RA,
+  async fazerCadastro(){
+    if (this.option === "1"){
+      const aluno = {
+        nome: this.formCadastroAluno.value.Nome,
+        email: this.formCadastroAluno.value.Email,
+        password: this.formCadastroAluno.value.Password,
+        phone: this.formCadastroAluno.value.Phone,
+        ra: this.formCadastroAluno.value.RA,
+        grade: Number(this.formCadastroAluno.value.Grade),
+      }
+      
+      await axios.post("http://localhost:9090/alunos/create", aluno)
+      this.router.navigate(['/'])
     }
-    await axios.post("http://localhost:9090/professores/create", professor)
-    this.router.navigate(['/'])
-  }
 
+    else{
+      const professor = {
+        nome: this.formCadastroAluno.value.Nome,
+        email: this.formCadastroAluno.value.Email,
+        password: this.formCadastroAluno.value.Password,
+        phone: this.formCadastroAluno.value.Phone,
+        codEscola: this.formCadastroAluno.value.RA,
+      }
+      await axios.post("http://localhost:9090/professores/create", professor)
+      this.router.navigate(['/'])
+    }
+  }
 }

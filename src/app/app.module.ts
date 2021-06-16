@@ -14,7 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
@@ -59,6 +60,7 @@ import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
     MatGridListModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
