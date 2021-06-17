@@ -36,6 +36,7 @@
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                 font-weight: 200;
                 margin: 0;
+                padding-bottom: -1rem;
     
             }
             
@@ -61,21 +62,6 @@
                 left: 0rem;
                 font-size: 1.2rem;
                 font-weight: 300;
-            }
-        }
-
-        .mat-progress-spinner {
-            height: 60px;
-            width: 60px;
-
-            svg {
-                height: 60px;
-                width: 60px;
-
-                circle {
-                    height: 60px;
-                    width: 60px;
-                }
             }
         }
     }

@@ -10,14 +10,16 @@ import { DashboardProfComponent } from './views/Professores/dashboard-prof/dashb
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro', component:  CadastroComponent},
+
   { path: 'aluno/dashboard', component:  DashboardAlunoComponent},
   { path: 'aluno/config', component:  ConfigAlunosComponent},
+  
   { path: 'prof/dashboard', component:  DashboardProfComponent},
   { path: 'prof/config', component:  ConfigProfComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

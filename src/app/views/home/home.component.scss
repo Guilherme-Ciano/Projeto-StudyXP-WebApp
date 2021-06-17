@@ -56,12 +56,6 @@ main {
     }
 }
 
-.header-pannel{
-    mat-card-subtitle{
-        background-color: green;
-    }
-}
-
 .sobre{
     mat-card{
         display: flex;
@@ -90,8 +84,9 @@ main {
             mat-card-title{
                 font-family: var(--font-family);
                 font-weight: 400;
-                display: flex;
                 align-items: center;
+                display: flex;
+                flex-direction: row;
                 justify-content: center;
                 text-align: center;
                 font-size: 3.5rem;

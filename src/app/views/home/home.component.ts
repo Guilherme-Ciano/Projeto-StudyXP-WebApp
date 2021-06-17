@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.clear();
   }
 
   public async login() {
@@ -37,6 +38,8 @@ export class HomeComponent implements OnInit {
         localStorage.setItem("Nome", user.nome);
         localStorage.setItem("Ano", user.grade);
         localStorage.setItem("RA", user.ra);
+        localStorage.setItem("LVL", user.level);
+        sessionStorage.setItem("logSession", localStorage.getItem("RA"))
         this.router.navigate(['/aluno/dashboard'])
       });
   }

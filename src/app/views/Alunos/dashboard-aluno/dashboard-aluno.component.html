@@ -6,11 +6,12 @@
             <mat-card-title>
                 <h1>{{user.Nome}}</h1>
                 <h3>{{user.Ano}}°Ano Médio</h3>
+                <h3>RA: {{user.RA}}</h3>
             </mat-card-title>
         
             <mat-card-subtitle>
                 <h2>Nível:</h2>
-                <h2 id="level_Number">{{level}}</h2>
+                <h2 id="level_Number">{{user.Level}}</h2>
                 <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
             </mat-card-subtitle>
 
