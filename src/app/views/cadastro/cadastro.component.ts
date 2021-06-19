@@ -12,6 +12,7 @@ export class CadastroComponent implements OnInit {
   disableSelect = new FormControl(false);
   formCadastroAluno: FormGroup;
   formCadastroProfessor: FormGroup;
+  level : number = 0; 
   option = "1";
   optionGroup = "formCadastroAluno";
 
@@ -28,6 +29,7 @@ export class CadastroComponent implements OnInit {
       Email: ["", [Validators.required, Validators.email]],
       Password: ["", [Validators.required]],
       Grade: ["", [Validators.required]],
+      Level: this.level
     })
 
     this.formCadastroProfessor = this.fb.group({
@@ -63,6 +65,7 @@ export class CadastroComponent implements OnInit {
         phone: this.formCadastroAluno.value.Phone,
         ra: this.formCadastroAluno.value.RA,
         grade: Number(this.formCadastroAluno.value.Grade),
+        level: this.formCadastroAluno.value.Level,
       }
       
       await axios.post("http://localhost:9090/alunos/create", aluno)
@@ -71,11 +74,11 @@ export class CadastroComponent implements OnInit {
 
     else{
       const professor = {
-        nome: this.formCadastroAluno.value.Nome,
-        email: this.formCadastroAluno.value.Email,
-        password: this.formCadastroAluno.value.Password,
-        phone: this.formCadastroAluno.value.Phone,
-        codEscola: this.formCadastroAluno.value.RA,
+        nome: this.formCadastroProfessor.value.nome,
+        email: this.formCadastroProfessor.value.email,
+        password: this.formCadastroProfessor.value.password,
+        phone: this.formCadastroProfessor.value.phone,
+        codEscola: this.formCadastroProfessor.value.codEscola,
       }
       await axios.post("http://localhost:9090/professores/create", professor)
       this.router.navigate(['/'])

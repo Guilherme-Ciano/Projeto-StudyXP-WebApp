@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
         console.log(user)
         localStorage.setItem("Nome", user.nome);
         localStorage.setItem("Ano", user.grade);
+        localStorage.setItem("Email", user.email)
         localStorage.setItem("RA", user.ra);
         localStorage.setItem("LVL", user.level);
         sessionStorage.setItem("logSession", localStorage.getItem("RA"))

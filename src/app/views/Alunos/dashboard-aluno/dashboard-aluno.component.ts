@@ -36,7 +36,7 @@ export class DashboardAlunoComponent implements OnInit {
   ngOnInit(): void {
     if (sessionStorage.getItem("logSession") !== null || localStorage.getItem("RA") !== null){
       if (sessionStorage.getItem("logSession") === localStorage.getItem("RA")){
-        sessionStorage.setItem("Navegacao", this.navegacaoOBJ);
+          sessionStorage.setItem("Navegacao", this.navegacaoOBJ);
         // this.getTarefas()
       } else {
         this.router.navigate(['/'])

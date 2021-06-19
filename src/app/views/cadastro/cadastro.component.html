@@ -15,7 +15,7 @@
       <mat-error>Tipo de Cadastro não foi preenchido</mat-error>
     </mat-form-field>
     
-     <mat-form-field appearance="outline"> <!-- Nome  -->
+    <mat-form-field appearance="outline"> <!-- Nome  -->
       <mat-label>Nome</mat-label>
       <input type="text" matInput formControlName="Nome">
         
@@ -45,7 +45,7 @@
 
     <mat-form-field appearance="outline"> <!-- Senha  -->
       <mat-label>Senha</mat-label>
-      <input type="text" matInput formControlName="Password">
+      <input type="password" matInput formControlName="Password">
       
       <mat-error>Senha não foi preenchido ou é inválido</mat-error>
     </mat-form-field>
@@ -62,19 +62,12 @@
       <mat-error>Ano não foi preenchido ou é inválido</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" id="COD"> <!-- Nome  -->
+    <mat-form-field appearance="outline" id="COD" style="display: none;">
       <mat-label>Código da Escola</mat-label>
       <input type="text" matInput formControlName="Nome">
         
       <mat-error>Cod. Escola não foi preenchido ou é inválido</mat-error>
     </mat-form-field>
-
-    <!-- <mat-form-field appearance="outline">
-      <mat-label>Foto de Perfil</mat-label>
-      <input input type="file" accept="image/png, image/jpeg" formControlName="Nome">
-        
-      <mat-error>Cod. Escola não foi preenchido ou é inválido</mat-error>
-    </mat-form-field> -->
 
     <button mat-flat-button color="primary" class="button" type="submit">Cadastrar-se</button>
   </form>

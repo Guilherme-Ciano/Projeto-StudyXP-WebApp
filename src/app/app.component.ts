@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   navegacaoOBJ = JSON.stringify(this.pagina)
   ngOnInit(): void {
-    
     sessionStorage.setItem("Navegacao", this.navegacaoOBJ)
   }
 
