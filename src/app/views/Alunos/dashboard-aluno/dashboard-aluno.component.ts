@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { API_Return } from './../../../model/API';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { SnackbarService } from './../../../services/snackbar.service';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -31,17 +29,21 @@ export class DashboardAlunoComponent implements OnInit {
 
   navegacaoOBJ = JSON.stringify(this.pagina);
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router, 
+    private snackbar:SnackbarService
+    ) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("logSession") !== null || localStorage.getItem("RA") !== null){
-      if (sessionStorage.getItem("logSession") === localStorage.getItem("RA")){
-          sessionStorage.setItem("Navegacao", this.navegacaoOBJ);
-        // this.getTarefas()
-      } else {
+      if ((localStorage.getItem("RA") || localStorage.getItem("Nome") || localStorage.getItem("LVL") || localStorage.getItem("Ano") || localStorage.getItem("Email")) === 'undefined'){
         this.router.navigate(['/'])
+        this.snackbar.error('Dados inválidos!')
       }
-    } else {this.router.navigate(['/'])}
+      this.snackbar.success('Bem-vindo ' + localStorage.getItem("Nome") + '!')
+    } else {
+      this.router.navigate(['/'])
+    }
   }
 
   navegacao = JSON.parse(this.navegacaoOBJ);

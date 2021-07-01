@@ -17,6 +17,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
@@ -63,6 +64,7 @@ import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
     MatProgressSpinnerModule,
     MatRadioModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
