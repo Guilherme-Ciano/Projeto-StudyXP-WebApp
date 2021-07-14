@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { API_Return } from './../../../model/API';
 import { Router } from '@angular/router';
 import { SnackbarService } from './../../../services/snackbar.service';
+import { CriptografiaService } from './../../../services/criptografia.service';
+import axios from 'axios';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -19,46 +20,50 @@ export class DashboardAlunoComponent implements OnInit {
   }
 
   user = {
-    Nome: localStorage.getItem('Nome'),
-    Ano: localStorage.getItem("Ano"),
-    RA: localStorage.getItem("RA"),
-    Level: localStorage.getItem("LVL"),
+    Nome: "",
+    Ano: "",
+    RA: "",
+    Level: "",
   }
 
-  tarefa = {} as API_Return;
-
-  navegacaoOBJ = JSON.stringify(this.pagina);
+  tarefas: []
 
   constructor(
     private router: Router, 
-    private snackbar:SnackbarService
+    private snackbar:SnackbarService,
+    private criptoService: CriptografiaService
     ) { }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("logSession") !== null || localStorage.getItem("RA") !== null){
-      if ((localStorage.getItem("RA") || localStorage.getItem("Nome") || localStorage.getItem("LVL") || localStorage.getItem("Ano") || localStorage.getItem("Email")) === 'undefined'){
+    if (sessionStorage.getItem("logSession") !== null){
+      if ((localStorage.getItem("Raw_Data")) === 'undefined'){
         this.router.navigate(['/'])
         this.snackbar.error('Dados inválidos!')
       }
-      this.snackbar.success('Bem-vindo ' + localStorage.getItem("Nome") + '!')
+
+      let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+      let jsonData = JSON.parse(rawData)
+      
+      this.user = {
+        Nome: jsonData.nome,
+        Ano: jsonData.grade,
+        Level: jsonData.level,
+        RA: jsonData.ra,
+      }
+
+      this.snackbar.success('Bem-vindo ' + this.user.Nome + '!')
     } else {
       this.router.navigate(['/'])
     }
+
+    this.getTarefas()
   }
 
-  navegacao = JSON.parse(this.navegacaoOBJ);
-
-  home = this.navegacao.home;
-  help = this.navegacao.help;
-  config = this.navegacao.config;
-  perfil = this.navegacao.perfil;
-  tarefas = this.navegacao.tarefas;
-
-  // public async getTarefas(){
-  //   await axios.get("http://localhost:9090/professores/tarefa/index")
-  //   .then((data) => {
-  //     console.log(data.data);
-  //   })
-  // }
-
+  // * Pegando as tarefas
+  public async getTarefas(){
+    await axios.get("http://localhost:9090/alunos/tarefas/index")
+    .then((data) => {
+      this.tarefas = data.data;
+    })
+  }
 }

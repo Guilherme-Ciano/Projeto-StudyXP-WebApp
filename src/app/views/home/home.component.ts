@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
 import { SnackbarService } from './../../services/snackbar.service';
+import { CriptografiaService } from './../../services/criptografia.service';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     private snackbar: SnackbarService,
     private formBuilder: FormBuilder,
     private router: Router,
+    private criptoService: CriptografiaService
   ) { 
     this.loginForm = formBuilder.group({
       email: ['', [Validators.required]],
@@ -27,6 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear();
+    sessionStorage.clear();
   }
 
   public async login() {
@@ -36,20 +39,13 @@ export class HomeComponent implements OnInit {
     })
       .then((data) => {
         let user = data.data
-        console.log(user)
-        console.log(user.data)
-        console.log(user.hash)
-        localStorage.setItem("Nome", user.data.nome);
-        localStorage.setItem("Ano", user.data.grade);
-        localStorage.setItem("Email", user.data.email)
-        localStorage.setItem("RA", user.data.ra);
-        localStorage.setItem("LVL", user.data.level);
+        localStorage.setItem("Raw_Data", this.criptoService.criptografar(JSON.stringify(user.data), 'md5'))
         sessionStorage.setItem("logSession", user.hash)
         this.router.navigate(['/aluno/dashboard'])
       })
-      .catch((error) => {
-        this.snackbar.error("Erro ao efetuar o login")
-      })
-  }
+    }
+    // .catch((error) => {
+    //   this.snackbar.error("Erro ao efetuar o login")
+    // })
 
 }

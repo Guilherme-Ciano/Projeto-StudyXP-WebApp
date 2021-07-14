@@ -84,6 +84,36 @@
             margin: 0;
         }
 
+        h3{
+            margin-left: 67rem;
+            margin-bottom: 0rem;
+            border-radius: 8px;
+            
+            background-color: var(--bs-red);
+            padding: 5px;
+            font-weight: bold;
+            color: antiquewhite;
+        }
+
+        hr {
+            margin-top: 0rem;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 15rem;
+            h4 {
+                width: max-content;
+                height: max-content;
+                background-color: var(--grad_end_green);
+                padding: 5px;
+                font-weight: bold;
+                border-radius: 8px;
+                font-size: 9pt;
+                margin: 0;
+            }
+        }
+
         .anexos {
             display: flex;
             flex-direction: row;
