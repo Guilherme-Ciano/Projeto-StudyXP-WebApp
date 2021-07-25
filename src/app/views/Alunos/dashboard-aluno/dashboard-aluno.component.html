@@ -1,3 +1,19 @@
+<header class="navbar">
+    <div class="buttons-wrapper">
+        <a routerLink="/aluno/dashboard" class="button">
+            <mat-icon class="material-icons-outlined">home</mat-icon>
+        </a>
+        
+        <a routerLink="/aluno/config" class="button">
+            <mat-icon class="material-icons-outlined">perm_identity</mat-icon>
+        </a>
+
+        <a href="" class="button last-child">
+            <mat-icon class="material-icons-outlined">logout</mat-icon>
+        </a>
+    </div>
+</header>
+
 <div class="wrapper">
     <div class="header-pannel">
     
@@ -5,17 +21,18 @@
             <div mat-card-avatar class="avatar-icon"></div>
             <mat-card-title>
                 <h1>{{user.Nome}}</h1>
-                <h3>{{user.Ano}}°Ano Médio</h3>
-                <h3>RA: {{user.RA}}</h3>
             </mat-card-title>
         
             <mat-card-subtitle>
-                <h2>Nível:</h2>
-                <h2 id="level_Number">{{user.Level}}</h2>
-                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                <div class="nivel">
+                    <h2>Nível:</h2>
+                    <h2 class="level_Number">{{user.Level}}</h2>
+                </div>
             </mat-card-subtitle>
 
         </mat-card>
+
+        <!-- <mat-progress-bar mode="determinate" value="40"></mat-progress-bar> -->
         
     </div>
     
@@ -27,7 +44,7 @@
                     
                     <mat-panel-title>
                         <h1>{{tarefa.titulo}}</h1>
-                        <h3>{{tarefa.limite_data | date: 'dd/MM | HH:MM'}}</h3>
+                        <h3>{{tarefa.limite_data | date: 'dd/MM'}}</h3>
                     </mat-panel-title>
                     
                 </mat-expansion-panel-header>
@@ -56,8 +73,8 @@
                 </div>
     
                 <div class="buttons_box">
-                    <button id="anx">Anexar +</button>
-                    <button id="fim">Finalizar</button>
+                    <button id="anx"><mat-icon>attach_file</mat-icon></button>
+                    <button id="fim"><mat-icon>done</mat-icon></button>
                 </div>
     
             </mat-expansion-panel>

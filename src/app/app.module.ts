@@ -18,6 +18,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
@@ -29,6 +31,7 @@ import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
+import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
     ConfigAlunosComponent,
     ConfigProfComponent,
     SidemenuComponent,
+    CriarTarefaComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +69,13 @@ import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
     MatRadioModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

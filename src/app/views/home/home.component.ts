@@ -41,7 +41,13 @@ export class HomeComponent implements OnInit {
         let user = data.data
         localStorage.setItem("Raw_Data", this.criptoService.criptografar(JSON.stringify(user.data), 'md5'))
         sessionStorage.setItem("logSession", user.hash)
-        this.router.navigate(['/aluno/dashboard'])
+
+        if (user.type === 'A'){
+          this.router.navigate(['/aluno/dashboard'])
+        } else if (user.type === 'P'){
+          this.router.navigate(['/prof/dashboard'])
+        }
+        
       })
     }
     // .catch((error) => {

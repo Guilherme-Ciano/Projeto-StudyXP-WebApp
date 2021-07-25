@@ -1,3 +1,19 @@
+<header class="navbar">
+    <div class="buttons-wrapper">
+        <a routerLink="/prof/dashboard" class="button">
+            <mat-icon class="material-icons-outlined">home</mat-icon>
+        </a>
+        
+        <a routerLink="/prof/config" class="button">
+            <mat-icon class="material-icons-outlined">perm_identity</mat-icon>
+        </a>
+
+        <a href="" class="button last-child">
+            <mat-icon class="material-icons-outlined">logout</mat-icon>
+        </a>
+    </div>
+</header>
+
 <div class="wrapper">
     <div class="header-pannel">
     
@@ -7,34 +23,18 @@
                 <h3>Professor</h3>
                 <h1>{{user.Nome}}</h1>
             </mat-card-title>
-        </mat-card>
-        
-        <mat-card class="animated-card">
-            <mat-icon>check_circle</mat-icon>
-        
-            <div class="content">
-                <mat-card-title>
-                    <h2>25</h2>
-                </mat-card-title>
-            
-                <mat-card-subtitle>
-                    <h2>Concluidas</h2>
-                </mat-card-subtitle>
-            </div>
-        </mat-card>
-        
-        <mat-card class="animated-card">
-            <mat-icon>info</mat-icon>
-        
-            <div class="content">
-                <mat-card-title>
-                    <h2>8</h2>
-                </mat-card-title>
-            
-                <mat-card-subtitle>
-                    <h2>Pendentes</h2>
-                </mat-card-subtitle>
-            </div>
+
+            <mat-card-subtitle>
+                <div class="concluidas" style="display: flex; flex-direction: row;">
+                    <h2>Concluidas: </h2>
+                    <h2>01</h2>
+                </div>
+
+                <div class="pendentes" style="display: flex; flex-direction: row;">
+                    <h2>Pendentes: </h2>
+                    <h2>08</h2>
+                </div>
+            </mat-card-subtitle>
         </mat-card>
     </div>
 
@@ -42,20 +42,23 @@
         <button mat-fab color="warn" style="font-size: 2rem;">+</button>
     </div>
 
-    <div class="act-pannel">
+    <div class="act-pannel" *ngFor="let tarefa of tarefas">
         <mat-accordion class="tarefa">
             <mat-expansion-panel>
                 
                 <mat-expansion-panel-header>
                     
                     <mat-panel-title>
-                        <h1>tarefa</h1>
+                        <h1>{{tarefa.titulo}}</h1>
+                        <h3>{{tarefa.limite_data | date: 'dd/MM'}}</h3>
                     </mat-panel-title>
                     
                 </mat-expansion-panel-header>
                 
+                <hr>
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis eros nec nibh consequat, vel hendrerit odio imperdiet. Pellentesque tempus ligula ac orci iaculis imperdiet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec semper leo id rutrum volutpat. Vestibulum egestas neque eu velit condimentum condimentum. Fusce sollicitudin laoreet orci, ac lacinia elit bibendum bibendum. In hac habitasse platea dictumst. Vivamus suscipit orci nisi, id placerat ex pretium sit amet. Praesent dapibus purus quis mollis scelerisque. Proin sit amet laoreet ipsum. Sed aliquet, ante non maximus viverra, felis lectus cursus erat, vitae pulvinar arcu arcu a est. Donec luctus at dui eget suscipit. Etiam sapien justo, facilisis et pharetra ac, tincidunt et augue. </p>
+                    <p>{{tarefa.descricao}}</p>
+                    <h4>+{{tarefa.xp}}xp</h4>
                 </div>
     
                 <div class="anexos">
@@ -76,72 +79,8 @@
                 </div>
     
                 <div class="buttons_box">
-                    <button id="rem">Excluir</button>
-                    <button id="fim">Finalizar</button>
-                </div>
-
-                <div class="alunos-submit">
-                    <mat-card class="done">
-                        <div mat-card-avatar class="avatar-icon"></div>
-                        <mat-card-title>
-                            <mat-icon class="material-icons-outlined">done</mat-icon>
-                            <h1>{{user.Nome}}</h1>
-                        </mat-card-title>
-
-                        <mat-card-subtitle>
-                            <div class="anexos">
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                            </div>
-                        </mat-card-subtitle>
-                    </mat-card>
-
-                    <mat-card class="done">
-                        <div mat-card-avatar class="avatar-icon"></div>
-                        <mat-card-title>
-                            <mat-icon>done</mat-icon>
-                            <h1>{{user.Nome}}</h1>
-                        </mat-card-title>
-
-                        <mat-card-subtitle>
-                            <div class="anexos">
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                
-                                <div class="anexo_card">
-                                    <mat-icon>attach_file</mat-icon>
-                                    <h4>Docs.word</h4>
-                                </div>
-                            </div>
-                        </mat-card-subtitle>
-                    </mat-card>
-
-                    <mat-card>
-                        <div mat-card-avatar class="avatar-icon"></div>
-                        <mat-card-title>
-                            <mat-icon>timer</mat-icon>
-                            <h1>{{user.Nome}}</h1>
-                        </mat-card-title>
-                    </mat-card>
+                    <button id="anx"><mat-icon>attach_file</mat-icon></button>
+                    <button id="fim"><mat-icon>done</mat-icon></button>
                 </div>
     
             </mat-expansion-panel>

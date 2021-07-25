@@ -5,6 +5,7 @@ import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboar
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { HomeComponent } from './views/home/home.component';
 import { ConfigProfComponent } from './views/Professores/config-prof/config-prof.component';
+import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
 import { DashboardProfComponent } from './views/Professores/dashboard-prof/dashboard-prof.component';
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
   
   { path: 'prof/dashboard', component:  DashboardProfComponent},
   { path: 'prof/config', component:  ConfigProfComponent},
+
+  {path: 'tarefas', component: CriarTarefaComponent}
 ];
 
 @NgModule({

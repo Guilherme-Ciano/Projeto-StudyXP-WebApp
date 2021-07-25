@@ -1,0 +1,22 @@
+.content {
+    display: flex;
+    flex-direction: column;
+
+    width: 30%;
+
+    padding: 3rem;
+
+    background-color: rgb(255, 255, 255);
+
+    border-radius: 8px;
+
+    position: relative;
+    top: 5rem;
+    left: 34rem;
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}

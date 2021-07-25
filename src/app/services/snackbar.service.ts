@@ -1,32 +1,41 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+enum MessageType {
+  Danger = "danger",
+  Success = "success",
+  Warn = "warn",
+  Default = "default",
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SnackbarService {
   constructor(
-    private _snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
   }
 
-  error(message: string) {
-    return this._snackBar.open(message, 'Erro', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+  Open(message: string, action: string, type?: MessageType) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: [`style-${type || MessageType.Default}`],
+      horizontalPosition: "center",
+      verticalPosition: "top",
     });
   }
 
-  success(message: string) {
-    return this._snackBar.open(message, 'Sucesso', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
+
+  error(message: string, action: string = "OK") {
+    this.Open(message, action, MessageType.Danger);
   }
 
-  info(message: string) {
-    return this._snackBar.open(message, 'Info', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
+  success(message: string, action: string = "OK") {
+    this.Open(message, action, MessageType.Success);
+  }
+
+
+  info(message: string, action: string = "OK") {
+    this.Open(message, action, MessageType.Default);
   }
 }
