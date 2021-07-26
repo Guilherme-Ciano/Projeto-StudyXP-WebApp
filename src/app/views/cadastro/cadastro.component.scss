@@ -33,3 +33,20 @@
 
     }
 }
+
+@media only screen and (max-width: 1024px) {
+    .wrapper {
+        width: 100vw;
+        padding: 1rem;
+    }
+
+    .bg-image {
+        display: none;
+    }
+
+    .form {
+        width: 100%;
+        margin: 0rem;
+        margin-right: 0;
+    }
+}

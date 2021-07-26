@@ -7,9 +7,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    margin-top: 5rem;
-    margin-bottom: 15rem;
+    height: 100vh;
 
     img {
         width: 22rem;
@@ -56,61 +54,20 @@ main {
     }
 }
 
-.sobre{
-    mat-card{
+@media only screen and (max-width: 1024px) {
+    main {
         display: flex;
-        flex-direction: row;
-
-        padding: 5rem;
+        flex-direction: column;
 
         img {
-            height: 35rem;
-            width: 35rem;
-            margin: 2rem;
-            margin-right: 5rem;
-            background-color: var(--gray);
-            padding: 4rem;
-            border-radius: 8px;
+            width: 12rem;
         }
 
-        .mat-content {
-            padding: 1rem;
-            
-            &:hover {
-                border: 2.5px solid var(--blue);
-                border-radius: 8px;
-            }
-
-            mat-card-title{
-                font-family: var(--font-family);
-                font-weight: 400;
-                align-items: center;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                text-align: center;
-                font-size: 3.5rem;
-                width: 100%;
-            }
-    
-            mat-card-content{
-                display: flex;
-                flex-direction: column;
-                width: 30rem;
-                margin: 1rem;
-    
-                justify-content: center;
-                border-radius: 8px;
-                padding: 1rem;
-    
-                h3 {
-                    font-family: var(--font-family);
-                    font-weight: 200;
-                    display: flex;
-                    font-size: 1.5rem;
-                    width: 100%
-                }
-            }
+        form {
+            width: 100%;
+            margin: 0;
+            margin-right: 0;
+            margin-top: 2rem;
         }
     }
 }

@@ -32,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
 import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tar
     ConfigProfComponent,
     SidemenuComponent,
     CriarTarefaComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

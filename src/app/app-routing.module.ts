@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { ConfigAlunosComponent } from './views/Alunos/config-alunos/config-alunos.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
@@ -18,7 +19,10 @@ const routes: Routes = [
   { path: 'prof/dashboard', component:  DashboardProfComponent},
   { path: 'prof/config', component:  ConfigProfComponent},
 
-  {path: 'tarefas', component: CriarTarefaComponent}
+  {path: 'tarefas', component: CriarTarefaComponent},
+
+  {path: '**', redirectTo: 'erro/404'},
+  {path: 'erro/404', component: PageNotFoundComponent},
 ];
 
 @NgModule({

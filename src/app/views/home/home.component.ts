@@ -49,9 +49,9 @@ export class HomeComponent implements OnInit {
         }
         
       })
+      .catch((error) => {
+        this.snackbar.error("Erro ao efetuar o Login")
+      })
     }
-    // .catch((error) => {
-    //   this.snackbar.error("Erro ao efetuar o login")
-    // })
 
 }
