@@ -301,6 +301,11 @@ Header.navbar {
                 background-color: var(--dark-blue);
             }
         }
+
+        .limparTarefas {
+            justify-content: flex-end;
+            display: flex;
+        }
     }
 }
 

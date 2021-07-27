@@ -53,8 +53,16 @@
                     </mat-panel-title>
                     
                 </mat-expansion-panel-header>
-                
                 <hr>
+                
+                <div class="limparTarefas">
+                    <button (click)="apagarTarefa(tarefa.id)">
+                        <mat-icon class="material-icons-outlined">
+                            delete
+                        </mat-icon>
+                    </button>
+                </div>
+                
                 <div class="content">
                     <p>{{tarefa.descricao}}</p>
                     <h4>+{{tarefa.xp}}xp</h4>
@@ -76,7 +84,7 @@
                         <h4>Docs.word</h4>
                     </div>
                 </div>
-    
+
                 <div class="buttons_box">
                     <button id="anx"><mat-icon>attach_file</mat-icon></button>
                     <button id="fim"><mat-icon>done</mat-icon></button>

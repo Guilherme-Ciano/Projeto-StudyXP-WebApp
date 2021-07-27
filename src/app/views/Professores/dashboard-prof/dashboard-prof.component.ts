@@ -65,4 +65,17 @@ export class DashboardProfComponent implements OnInit {
       this.snackbar.success(resposta.data.status + "! \n" + resposta.data.message + '!')
     })
   }
+
+  async apagarTarefa(id: number){
+    let apagarTarefa = {
+      'id': id 
+    }
+
+    console.log(apagarTarefa)
+
+    await axios.post("http://localhost:9090/professores/tarefas/clearunique", apagarTarefa)
+    .then((resposta) => {
+      this.snackbar.success(resposta.data.status + "! \n" + resposta.data.message + '!')
+    })
+  }
 }
