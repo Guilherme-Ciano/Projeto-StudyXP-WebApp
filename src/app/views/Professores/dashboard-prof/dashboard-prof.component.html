@@ -39,7 +39,7 @@
     </div>
 
     <div class="buttonAddTarefa">
-        <button mat-fab color="warn" style="font-size: 2rem;">+</button>
+        <button mat-fab color="warn" (click)="criarTarefa()" style="font-size: 2rem;">+</button>
     </div>
 
     <div class="act-pannel" *ngFor="let tarefa of tarefas">

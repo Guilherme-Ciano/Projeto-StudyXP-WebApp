@@ -1,4 +1,6 @@
-<div class="content">
+
+<h1 mat-dialog-title> Criar Tarefa</h1>
+<div class="content" mat-dialog-content>
     <form class="mat-typography form" [formGroup]="tarefaForm" (ngSubmit)="enviarTarefa()">
         <mat-form-field appearance="outline">
             <mat-label>Classe:</mat-label>
@@ -42,6 +44,6 @@
         <mat-error>Xp não foi preenchido</mat-error>
         </mat-form-field>
 
-        <button mat-flat-button color="primary" class="button" type="submit">Enviar</button>
+        <button mat-flat-button (mat-dialog-close)="refresh()" color="primary" class="button" type="submit">Enviar</button>
     </form>
 </div>

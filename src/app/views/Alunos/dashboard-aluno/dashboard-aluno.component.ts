@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SnackbarService } from './../../../services/snackbar.service';
 import { CriptografiaService } from './../../../services/criptografia.service';
 import axios from 'axios';
+import { LogoutService } from 'src/app/services/logout.service';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -10,14 +11,6 @@ import axios from 'axios';
   styleUrls: ['./dashboard-aluno.component.scss']
 })
 export class DashboardAlunoComponent implements OnInit {
-
-  pagina = {
-    home : "aluno/dashboard",
-    help : "help",
-    config : "aluno/profile/config",
-    perfil : "aluno/profile",
-    tarefas : "aluno/tarefas",
-  }
 
   user = {
     Nome: "",
@@ -31,12 +24,13 @@ export class DashboardAlunoComponent implements OnInit {
   constructor(
     private router: Router, 
     private snackbar:SnackbarService,
-    private criptoService: CriptografiaService
+    private criptoService: CriptografiaService,
+    private sair: LogoutService,
     ) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("logSession") !== null){
-      if ((localStorage.getItem("Raw_Data")) === 'undefined'){
+      if ((localStorage.getItem("Raw_Data")) === 'undefined' || !localStorage.getItem("Raw_Data")){
         this.router.navigate(['/'])
         this.snackbar.error('Dados inválidos!')
       }
@@ -65,5 +59,9 @@ export class DashboardAlunoComponent implements OnInit {
     .then((data) => {
       this.tarefas = data.data;
     })
+  }
+
+  logout(){
+    this.sair.logout()
   }
 }

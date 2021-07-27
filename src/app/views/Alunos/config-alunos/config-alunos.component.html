@@ -1,3 +1,19 @@
+<header class="navbar">
+    <div class="buttons-wrapper">
+        <a routerLink="/aluno/dashboard" class="button">
+            <mat-icon class="material-icons-outlined">home</mat-icon>
+        </a>
+        
+        <a routerLink="/aluno/config" class="button">
+            <mat-icon class="material-icons-outlined">perm_identity</mat-icon>
+        </a>
+
+        <a (click)="logout()" class="button last-child">
+            <mat-icon class="material-icons-outlined">logout</mat-icon>
+        </a>
+    </div>
+</header>
+
 <div class="wrapper">
     <div class="box">
         <h1>Alterar Dados de Cadastro</h1>
@@ -10,15 +26,15 @@
 
         <div class="text-wrappers">
 
-            <h3>Nome Atual: {{nome}}</h3>
+            <h3>Nome Atual:</h3>
             <mat-form-field appearance="outline"> <!-- Nome  -->
                 <mat-label>Nome</mat-label>
-                <input type="text" matInput formControlName="Nome" placeholder="José">
+                <input type="text" matInput formControlName="Nome">
                   
                 <mat-error>Nome não foi preenchido</mat-error>
             </mat-form-field>
 
-            <h3>Email Atual: {{email}}</h3>
+            <h3>Email Atual:</h3>
             <mat-form-field appearance="outline"> <!-- Email  -->
                 <mat-label>Email</mat-label>
                 <input type="email" matInput formControlName="Email" placeholder="">

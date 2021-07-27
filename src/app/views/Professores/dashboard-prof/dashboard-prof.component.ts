@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { CriptografiaService } from 'src/app/services/criptografia.service';
 import { SnackbarService} from 'src/app/services/snackbar.service';
+import { DialogService } from './../../../services/dialog.service';
 
 @Component({
   selector: 'app-dashboard-prof',
@@ -20,8 +22,9 @@ export class DashboardProfComponent implements OnInit {
   constructor(
     private router: Router, 
     private snackbar:SnackbarService,
-    private criptoService: CriptografiaService
-  ) { }
+    private criptoService: CriptografiaService,
+    private dialog: DialogService
+    ) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem("logSession") !== null){
@@ -50,5 +53,9 @@ export class DashboardProfComponent implements OnInit {
     .then((data) => {
       this.tarefas = data.data;
     })
+  }
+
+  criarTarefa(){
+    this.dialog.openDialog()
   }
 }

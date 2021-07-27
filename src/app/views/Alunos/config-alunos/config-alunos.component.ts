@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from 'src/app/services/logout.service';
 
 @Component({
   selector: 'app-config-alunos',
@@ -6,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./config-alunos.component.scss']
 })
 export class ConfigAlunosComponent implements OnInit {
-  nome = localStorage.getItem("Nome");
-  email = localStorage.getItem("Email");
 
-  constructor() { }
+  constructor(
+    private sair: LogoutService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.sair.logout()
   }
 
 }
