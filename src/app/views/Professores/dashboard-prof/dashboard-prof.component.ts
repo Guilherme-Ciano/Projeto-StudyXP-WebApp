@@ -58,4 +58,11 @@ export class DashboardProfComponent implements OnInit {
   criarTarefa(){
     this.dialog.openDialog()
   }
+
+  async limparTarefas(){
+    await axios.get("http://localhost:9090/professores/tarefas/clearall")
+    .then((resposta) => {
+      this.snackbar.success(resposta.data.status + "! \n" + resposta.data.message + '!')
+    })
+  }
 }

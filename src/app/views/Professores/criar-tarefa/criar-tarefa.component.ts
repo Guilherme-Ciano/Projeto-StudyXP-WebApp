@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-criar-tarefa',
@@ -13,7 +14,8 @@ export class CriarTarefaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private dialog: DialogService,
   ) { }
 
   ngOnInit(): void {
@@ -30,14 +32,4 @@ export class CriarTarefaComponent implements OnInit {
     console.log(this.tarefaForm.value)
     await axios.post("http://localhost:9090/professores/tarefas/create", this.tarefaForm.value);
   }
-
-  refresh(){
-    this.redirectTo('/prof/dashboard')
-  }
-
-  redirectTo(uri:string){
-    this.router.navigateByUrl('/nada').then(()=>
-    this.router.navigate([uri]));
-  }
-
 }

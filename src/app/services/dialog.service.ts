@@ -18,5 +18,4 @@ export class DialogService {
       console.log('The dialog was closed');
     });
   }
-
 }

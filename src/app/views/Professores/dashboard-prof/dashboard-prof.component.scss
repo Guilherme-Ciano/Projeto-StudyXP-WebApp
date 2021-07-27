@@ -84,16 +84,11 @@ Header.navbar {
                 font-weight: 100;
             }
         }
-    
+
         mat-card-subtitle {
-            width: 50%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-    
-            h2 {
-                margin: 0;
-            }
+            width: inherit;
+            justify-content: flex-end;
         }
     }
     
@@ -155,8 +150,47 @@ Header.navbar {
 .buttonAddTarefa{
     position: fixed;
 
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    width: 100%;
     top: 80%;
-    left: 92%;
+    z-index: 90;
+
+    button {
+        margin-right: 1rem;
+        transition: 600ms;
+
+        background-color: var(--light-blue);
+
+        &:hover{
+            background-color: var(--blue);
+        }
+    }
+}
+
+.limparTarefas {
+    button {
+        border: none;
+        display: flex;
+        color: red;
+        opacity: 0.3;
+        height: auto;
+        transition: 600ms;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    p {
+        margin: 0;
+        font-size: 10pt;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        width: max-content;
+    }
 }
 
 .act-pannel{
@@ -278,7 +312,7 @@ Header.navbar {
             margin: 0;
             padding-bottom: -1rem;
             font-size: 16pt;
-            width: 10rem !important;
+            width: fit-content;
 
         }
     }
@@ -337,4 +371,8 @@ Header.navbar {
             }
         }
     }
+}
+
+.buttonAddTarefa {
+    justify-content: center;
 }

@@ -24,22 +24,21 @@
                 <h1>{{user.Nome}}</h1>
             </mat-card-title>
 
-            <mat-card-subtitle>
-                <div class="concluidas" style="display: flex; flex-direction: row;">
-                    <h2>Concluidas: </h2>
-                    <h2>01</h2>
-                </div>
-
-                <div class="pendentes" style="display: flex; flex-direction: row;">
-                    <h2>Pendentes: </h2>
-                    <h2>08</h2>
+            <mat-card-subtitle>                
+                <div class="limparTarefas">
+                    <button (click)="limparTarefas()">
+                        <mat-icon class="material-icons-outlined">
+                            delete
+                        </mat-icon>
+                        <p>Excluir tarefas</p>
+                    </button>
                 </div>
             </mat-card-subtitle>
         </mat-card>
     </div>
 
     <div class="buttonAddTarefa">
-        <button mat-fab color="warn" (click)="criarTarefa()" style="font-size: 2rem;">+</button>
+        <button mat-fab (click)="criarTarefa()" style="font-size: 2rem;">+</button>
     </div>
 
     <div class="act-pannel" *ngFor="let tarefa of tarefas">
