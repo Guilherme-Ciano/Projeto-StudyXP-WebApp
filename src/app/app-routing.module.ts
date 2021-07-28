@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
+import { AdminComponent } from './views/admin/admin.component';
 import { ConfigAlunosComponent } from './views/Alunos/config-alunos/config-alunos.component';
 import { DashboardAlunoComponent } from './views/Alunos/dashboard-aluno/dashboard-aluno.component';
 import { CadastroComponent } from './views/cadastro/cadastro.component';
@@ -12,6 +13,8 @@ import { DashboardProfComponent } from './views/Professores/dashboard-prof/dashb
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro', component:  CadastroComponent},
+
+  { path: 'admin', component: AdminComponent},
 
   { path: 'aluno/dashboard', component:  DashboardAlunoComponent},
   { path: 'aluno/config', component:  ConfigAlunosComponent},

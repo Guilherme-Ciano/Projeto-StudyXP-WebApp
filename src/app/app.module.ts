@@ -33,6 +33,7 @@ import { CadastroComponent } from './views/cadastro/cadastro.component';
 import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
 import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PageNotFoundComponent } from './error/page-not-found/page-not-found.com
     SidemenuComponent,
     CriarTarefaComponent,
     PageNotFoundComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

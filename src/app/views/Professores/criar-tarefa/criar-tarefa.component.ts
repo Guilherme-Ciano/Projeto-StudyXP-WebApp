@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import axios from 'axios';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/services/dialog.service';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-criar-tarefa',
@@ -16,6 +17,7 @@ export class CriarTarefaComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private dialog: DialogService,
+    private apiService: ApiServiceService
   ) { }
 
   ngOnInit(): void {
@@ -31,5 +33,6 @@ export class CriarTarefaComponent implements OnInit {
   async enviarTarefa(){
     console.log(this.tarefaForm.value)
     await axios.post("http://localhost:9090/professores/tarefas/create", this.tarefaForm.value);
+    this.apiService.refresh()
   }
 }

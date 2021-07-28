@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { CriptografiaService } from 'src/app/services/criptografia.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,9 @@ export class ApiServiceService {
   }
 
   constructor(
-    private criptoService: CriptografiaService
+    private criptoService: CriptografiaService,
+    private router: Router,
+    private location: Location
   ) { }
 
   async BuscarAluno() {
@@ -60,5 +64,11 @@ export class ApiServiceService {
 
     let prof = this.professores.find(element => element.email === this.user_Prof.Email && element.nome === this.user_Prof.Nome)
     return (prof)
+  }
+
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      this.router.navigate([decodeURI(this.location.path())]);
+    })
   }
 }
