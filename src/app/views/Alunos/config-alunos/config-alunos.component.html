@@ -25,48 +25,56 @@
         </div>
 
         <div class="text-wrappers">
+            <form class="mat-typography form" [formGroup]="formAlteracaoAluno" (ngSubmit)="AlterarDadosDoAluno()">
+                <h3>Nome Atual:</h3>
+                <mat-form-field appearance="outline"> <!-- Nome  -->
+                    <mat-label>Nome</mat-label>
+                    <input type="text" matInput formControlName="Nome">
+                      
+                    <mat-error>Nome não foi preenchido</mat-error>
+                </mat-form-field>
 
-            <h3>Nome Atual:</h3>
-            <mat-form-field appearance="outline"> <!-- Nome  -->
-                <mat-label>Nome</mat-label>
-                <input type="text" matInput formControlName="Nome">
-                  
-                <mat-error>Nome não foi preenchido</mat-error>
-            </mat-form-field>
-
-            <h3>Email Atual:</h3>
-            <mat-form-field appearance="outline"> <!-- Email  -->
-                <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="Email" placeholder="">
-                
-                <mat-error>Email não foi preenchido ou é inválido</mat-error>
-            </mat-form-field>
-          
-            <h3>Redefinir Senha:</h3>
-            <mat-form-field appearance="outline"> <!-- Senha  -->
-                <mat-label>Senha Antiga</mat-label>
-                <input type="password" matInput formControlName="Password" placeholder="">
-                
-                <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-            </mat-form-field>
-
-            <h4>Nova Senha:</h4>
-            <mat-form-field appearance="outline"> <!-- Senha  -->
-                <mat-label>Senha</mat-label>
-                <input type="password" matInput formControlName="Password" placeholder="">
-                
-                <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline"> <!-- Senha  -->
-                <mat-label>Repita a senha</mat-label>
-                <input type="password" matInput formControlName="Password" placeholder="">
-                
-                <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-            </mat-form-field>
-
-            <button mat-button>Salvar Alterações</button>
-
+                <h3>Telefone Atual:</h3>
+                <mat-form-field appearance="outline"> <!-- Email  -->
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="Phone" placeholder="">
+                    
+                    <mat-error>Phone não foi preenchido ou é inválido</mat-error>
+                </mat-form-field>
+    
+                <h3>Email Atual:</h3>
+                <mat-form-field appearance="outline"> <!-- Email  -->
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="Email" placeholder="">
+                    
+                    <mat-error>Email não foi preenchido ou é inválido</mat-error>
+                </mat-form-field>
+              
+                <h3>Redefinir Senha:</h3>
+                <mat-form-field appearance="outline"> <!-- Senha  -->
+                    <mat-label>Senha Antiga</mat-label>
+                    <input type="password" matInput formControlName="Password" placeholder="">
+                    
+                    <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+                </mat-form-field>
+    
+                <h4>Nova Senha:</h4>
+                <mat-form-field appearance="outline"> <!-- Senha  -->
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput formControlName="Password" placeholder="">
+                    
+                    <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline"> <!-- Senha  -->
+                    <mat-label>Repita a senha</mat-label>
+                    <input type="password" matInput formControlName="Password" placeholder="">
+                    
+                    <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+                </mat-form-field>
+    
+                <button mat-flat-button color="primary" class="button" type="submit">Alterar</button>
+            </form>
         </div>
     </div>
 </div>

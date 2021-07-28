@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import axios from 'axios';
+import { CriptografiaService } from 'src/app/services/criptografia.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -19,6 +20,7 @@ export class CadastroComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private criptoService: CriptografiaService,
   ) { }
 
   ngOnInit(): void {
@@ -61,7 +63,7 @@ export class CadastroComponent implements OnInit {
       const aluno = {
         nome: this.formCadastroAluno.value.Nome,
         email: this.formCadastroAluno.value.Email,
-        password: this.formCadastroAluno.value.Password,
+        password: this.criptoService.criptografarSenhas((this.formCadastroAluno.value.Password)),
         phone: this.formCadastroAluno.value.Phone,
         ra: this.formCadastroAluno.value.RA,
         grade: Number(this.formCadastroAluno.value.Grade),
@@ -76,7 +78,7 @@ export class CadastroComponent implements OnInit {
       const professor = {
         nome: this.formCadastroProfessor.value.nome,
         email: this.formCadastroProfessor.value.email,
-        password: this.formCadastroProfessor.value.password,
+        password: this.criptoService.criptografarSenhas((this.formCadastroProfessor.value.password)),
         phone: this.formCadastroProfessor.value.phone,
         codEscola: this.formCadastroProfessor.value.codEscola,
       }

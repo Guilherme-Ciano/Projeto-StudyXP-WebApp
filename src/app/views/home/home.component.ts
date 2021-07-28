@@ -33,9 +33,10 @@ export class HomeComponent implements OnInit {
   }
 
   public async login() {
+    
     await axios.post("http://localhost:9090/login", {
       email: this.loginForm.value.email,
-      password: this.loginForm.value.password,
+      password: this.criptoService.criptografarSenhas((this.loginForm.value.password)),
     })
       .then((data) => {
         let user = data.data

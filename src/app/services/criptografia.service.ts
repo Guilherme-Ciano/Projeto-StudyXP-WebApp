@@ -12,6 +12,10 @@ export class CriptografiaService {
     return CryptoJS.AES.encrypt(texto, chave).toString();
   }
 
+  criptografarSenhas(texto: string) {
+    return CryptoJS.SHA256(texto).toString();
+  }
+
   descriptografar(texto: string, chave: string) {
     const message = CryptoJS.AES.decrypt(texto, chave);
     return message.toString(CryptoJS.enc.Utf8);

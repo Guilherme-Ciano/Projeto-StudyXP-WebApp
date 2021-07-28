@@ -1,14 +1,64 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { CriptografiaService } from 'src/app/services/criptografia.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
-  constructor() { }
+  professores = []
+  alunos = []
 
-  async getTarefas() {
-    await axios.get("http://localhost:9090/professores/tarefa/index")
+  user_Aluno = {
+    Nome: '',
+    Ano: '',
+    Level: '',
+    RA: ''
+  }
+
+  user_Prof = {
+    Nome: '',
+    Email: '',
+  }
+
+  constructor(
+    private criptoService: CriptografiaService
+  ) { }
+
+  async BuscarAluno() {
+    await axios.get("http://localhost:9090/alunos/index").then((response) => {
+      this.alunos =  response.data
+    })
+
+    let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+    let jsonData = JSON.parse(rawData)
+      
+    this.user_Aluno = {
+      Nome: jsonData.nome,
+      Ano: jsonData.grade,
+      Level: jsonData.level,
+      RA: jsonData.ra,
+    }
+
+    let aluno = this.alunos.find(element => element.ra === this.user_Aluno.RA )
+    return (aluno)
+  }
+
+  async BuscarProf() {
+    await axios.get("http://localhost:9090/professores/index").then((response) => {
+      this.professores =  response.data
+    })
+
+    let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+    let jsonData = JSON.parse(rawData)
+      
+    this.user_Prof = {
+      Nome: jsonData.nome,
+      Email: jsonData.email,
+    }
+
+    let prof = this.professores.find(element => element.email === this.user_Prof.Email && element.nome === this.user_Prof.Nome)
+    return (prof)
   }
 }
