@@ -3,6 +3,7 @@ import axios from 'axios';
 import { CriptografiaService } from 'src/app/services/criptografia.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,8 @@ export class ApiServiceService {
   constructor(
     private criptoService: CriptografiaService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private snbar: SnackbarService
   ) { }
 
   async BuscarAluno() {
@@ -69,6 +71,29 @@ export class ApiServiceService {
   refresh(): void {
     this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
       this.router.navigate([decodeURI(this.location.path())]);
+    })
+  }
+
+  async BuscarTarefas(){
+    await axios.get('http://localhost:9090/alunos/tarefas/tarefaspendentes').then((response) => {
+      return response;
+    })
+  }
+
+  async EnviarTarefa(id: number){
+    let concluir = {
+      flag: "concluido"
+    };
+    await axios.post('http://localhost:9090/alunos/tarefas/concluirtarefa?id=' + id, concluir).then((response) => {
+      this.snbar.success(response.data.status, response.data.message);
+      this.refresh()
+    })
+  }
+
+  async AlterarDadosAluno(id: number, newData){
+    await axios.post('http://localhost:9090/alunos/update?id=' + id, newData).then((response) => {
+      this.snbar.success(response.data.status, response.data.message);
+      this.refresh()
     })
   }
 }

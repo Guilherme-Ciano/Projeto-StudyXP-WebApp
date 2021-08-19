@@ -4,6 +4,7 @@ import { SnackbarService } from './../../../services/snackbar.service';
 import { CriptografiaService } from './../../../services/criptografia.service';
 import axios from 'axios';
 import { LogoutService } from 'src/app/services/logout.service';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -26,6 +27,7 @@ export class DashboardAlunoComponent implements OnInit {
     private snackbar:SnackbarService,
     private criptoService: CriptografiaService,
     private sair: LogoutService,
+    private apiService: ApiServiceService
     ) { }
 
   ngOnInit(): void {
@@ -54,11 +56,15 @@ export class DashboardAlunoComponent implements OnInit {
   }
 
   // * Pegando as tarefas
-  public async getTarefas(){
-    await axios.get("http://localhost:9090/alunos/tarefas/index")
+  async getTarefas(){
+    await axios.get('http://localhost:9090/alunos/tarefas/tarefaspendentes')
     .then((data) => {
       this.tarefas = data.data;
     })
+  }
+
+  async concluirTarefa(id){
+    await this.apiService.EnviarTarefa(id)
   }
 
   logout(){

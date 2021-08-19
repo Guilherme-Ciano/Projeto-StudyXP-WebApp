@@ -29,25 +29,25 @@ export class DashboardProfComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // if (sessionStorage.getItem("logSession") !== null){
-    //   if ((localStorage.getItem("Raw_Data")) === 'undefined'){
-    //     this.router.navigate(['/'])
-    //     this.snackbar.error('Dados inválidos!')
-    //   }
+    if (sessionStorage.getItem("logSession") !== null){
+      if ((localStorage.getItem("Raw_Data")) === 'undefined'){
+        this.router.navigate(['/'])
+        this.snackbar.error('Dados inválidos!')
+      }
 
-    //   let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
-    //   let jsonData = JSON.parse(rawData)
+      let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+      let jsonData = JSON.parse(rawData)
       
-    //   this.user = {
-    //     Nome: jsonData.nome,
-    //   }
+      this.user = {
+        Nome: jsonData.nome,
+      }
 
-    //   this.getTarefas();
+      this.getTarefas();
 
-    //   this.snackbar.success('Bem-vindo ' + this.user.Nome + '!')
-    // } else {
-    //   this.router.navigate(['/'])
-    // }
+      this.snackbar.success('Bem-vindo ' + this.user.Nome + '!')
+    } else {
+      this.router.navigate(['/'])
+    }
   }
 
   public async getTarefas(){

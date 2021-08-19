@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutService } from 'src/app/services/logout.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { CriptografiaService } from './../../../services/criptografia.service';
 
 @Component({
   selector: 'app-config-alunos',
@@ -9,20 +10,44 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
   styleUrls: ['./config-alunos.component.scss']
 })
 export class ConfigAlunosComponent implements OnInit {
-  formAlteracaoAluno: FormGroup
+  formAlteracaoNome: FormGroup;
+  formAlteracaoEmail: FormGroup;
+  formAlteracaoSenha: FormGroup;
+  formAlteracaoPhone: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private sair: LogoutService,
     private apiService: ApiServiceService,
+    private criptoService: CriptografiaService,
   ) { }
 
+  rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+  jsonData = JSON.parse(this.rawData)
+  
+  user = {
+    Nome: this.jsonData.nome,
+    Email: this.jsonData.email,
+    Pass: this.jsonData.password,
+    Phone: this.jsonData.phone,
+    ID: this.jsonData.id,
+  }
+
   ngOnInit(): void {
-    this.formAlteracaoAluno = this.fb.group({
-      Nome: [""],
-      Phone: [""],
-      Email: ["", [Validators.email]],
-      Password: [""],
+    this.formAlteracaoNome = this.fb.group({
+      nome: ["", [Validators.required]],
+    })
+
+    this.formAlteracaoEmail = this.fb.group({
+      email: ["", [Validators.required]],
+    })
+
+    this.formAlteracaoSenha = this.fb.group({
+      password: ["", [Validators.required]],
+    })
+
+    this.formAlteracaoPhone = this.fb.group({
+      phone: ["", [Validators.required]],
     })
   }
 
@@ -30,25 +55,8 @@ export class ConfigAlunosComponent implements OnInit {
     this.sair.logout()
   }
 
-  async AlterarDadosDoAluno(){
-    let dadosAlterados = (this.formAlteracaoAluno) // Obj
-    let dadosNovos = {}
-    let dadosOriginais = await (this.apiService.BuscarAluno()) // Obj
-
-    let keys = ['Nome', 'Phone', 'Email', 'Password']
-
-    Object.keys(dadosAlterados.value).forEach((item) => {
-      console.log(item)
-      if (item === null || "") {
-        dadosAlterados.removeControl(item);
-      } else {
-        
-      }
-    })
-    
-
-    console.log(dadosAlterados)
-
+  async AlterarDadosDoAluno(newData){
+    this.apiService.AlterarDadosAluno(this.user.ID, newData)
   }
 
 }

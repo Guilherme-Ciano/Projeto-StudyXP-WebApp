@@ -27,6 +27,7 @@ export class CriarTarefaComponent implements OnInit {
       limite_data: ["", [Validators.required]],
       xp: ["", [Validators.required]],
       classe: ["", [Validators.required]],
+      flag: "pendente"
     })
   }
 

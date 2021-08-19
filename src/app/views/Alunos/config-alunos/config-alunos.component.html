@@ -25,54 +25,51 @@
         </div>
 
         <div class="text-wrappers">
-            <form class="mat-typography form" [formGroup]="formAlteracaoAluno" (ngSubmit)="AlterarDadosDoAluno()">
-                <h3>Nome Atual:</h3>
+            <form class="mat-typography form" [formGroup]="formAlteracaoNome" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoNome.value)">
+                <h3>Nome Atual: user.Nome</h3>
                 <mat-form-field appearance="outline"> <!-- Nome  -->
                     <mat-label>Nome</mat-label>
-                    <input type="text" matInput formControlName="Nome">
+                    <input type="text" matInput formControlName="nome">
                       
                     <mat-error>Nome não foi preenchido</mat-error>
                 </mat-form-field>
 
+                <button mat-flat-button color="primary" class="button" type="submit">Alterar</button>
+            </form>
+
+            <form class="mat-typography form" [formGroup]="formAlteracaoPhone" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoPhone.value)">
                 <h3>Telefone Atual:</h3>
                 <mat-form-field appearance="outline"> <!-- Email  -->
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName="Phone" placeholder="">
+                    <input type="email" matInput formControlName="phone">
                     
                     <mat-error>Phone não foi preenchido ou é inválido</mat-error>
                 </mat-form-field>
+
+                <button mat-flat-button color="primary" class="button" type="submit">Alterar</button>
+            </form>
     
+            <form class="mat-typography form" [formGroup]="formAlteracaoEmail" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoEmail.value)">
                 <h3>Email Atual:</h3>
                 <mat-form-field appearance="outline"> <!-- Email  -->
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName="Email" placeholder="">
+                    <input type="email" matInput formControlName="email">
                     
                     <mat-error>Email não foi preenchido ou é inválido</mat-error>
                 </mat-form-field>
+                
+                <button mat-flat-button color="primary" class="button" type="submit">Alterar</button>
+            </form>
               
+            <form class="mat-typography form" [formGroup]="formAlteracaoSenha" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoSenha.value)">
                 <h3>Redefinir Senha:</h3>
                 <mat-form-field appearance="outline"> <!-- Senha  -->
                     <mat-label>Senha Antiga</mat-label>
-                    <input type="password" matInput formControlName="Password" placeholder="">
+                    <input type="password" matInput formControlName="password">
                     
                     <mat-error>Senha não foi preenchido ou é inválido</mat-error>
                 </mat-form-field>
-    
-                <h4>Nova Senha:</h4>
-                <mat-form-field appearance="outline"> <!-- Senha  -->
-                    <mat-label>Senha</mat-label>
-                    <input type="password" matInput formControlName="Password" placeholder="">
-                    
-                    <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-                </mat-form-field>
-    
-                <mat-form-field appearance="outline"> <!-- Senha  -->
-                    <mat-label>Repita a senha</mat-label>
-                    <input type="password" matInput formControlName="Password" placeholder="">
-                    
-                    <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-                </mat-form-field>
-    
+                
                 <button mat-flat-button color="primary" class="button" type="submit">Alterar</button>
             </form>
         </div>
