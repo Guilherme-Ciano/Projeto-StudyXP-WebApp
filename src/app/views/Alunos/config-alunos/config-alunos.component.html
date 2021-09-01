@@ -27,6 +27,7 @@
         <div class="text-wrappers">
             <form class="mat-typography form" [formGroup]="formAlteracaoNome" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoNome.value)">
                 <h3>Nome Atual:</h3>
+                <mat-form-field appearance="outline">
                     <mat-label>Nome</mat-label>
                     <input type="text" matInput formControlName="nome">
                       
@@ -38,6 +39,7 @@
 
             <form class="mat-typography form" [formGroup]="formAlteracaoPhone" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoPhone.value)">
                 <h3>Telefone Atual:</h3>
+                <mat-form-field appearance="outline">
                     <mat-label>Telefone</mat-label>
                     <input type="phone" matInput formControlName="phone">
                     

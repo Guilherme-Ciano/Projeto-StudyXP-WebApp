@@ -37,9 +37,10 @@ Header.navbar {
 }
 
 .wrapper {
-    width: 98vw;
+    width: 98.5vw;
     display: flex;
     justify-content: center;
+    background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }
 
 .box{

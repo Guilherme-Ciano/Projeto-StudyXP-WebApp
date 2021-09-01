@@ -40,6 +40,7 @@ Header.navbar {
     width: 98vw;
     display: flex;
     justify-content: center;
+    background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }
 
 .box{
