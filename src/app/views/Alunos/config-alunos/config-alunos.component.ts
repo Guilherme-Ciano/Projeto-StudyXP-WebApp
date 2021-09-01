@@ -22,16 +22,16 @@ export class ConfigAlunosComponent implements OnInit {
     private criptoService: CriptografiaService,
   ) { }
 
-  rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
-  jsonData = JSON.parse(this.rawData)
+  // rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
+  // jsonData = JSON.parse(this.rawData)
   
-  user = {
-    Nome: this.jsonData.nome,
-    Email: this.jsonData.email,
-    Pass: this.jsonData.password,
-    Phone: this.jsonData.phone,
-    ID: this.jsonData.id,
-  }
+  // user = {
+  //   Nome: this.jsonData.nome,
+  //   Email: this.jsonData.email,
+  //   Pass: this.jsonData.password,
+  //   Phone: this.jsonData.phone,
+  //   ID: this.jsonData.id,
+  // }
 
   ngOnInit(): void {
     this.formAlteracaoNome = this.fb.group({
@@ -56,7 +56,7 @@ export class ConfigAlunosComponent implements OnInit {
   }
 
   async AlterarDadosDoAluno(newData){
-    this.apiService.AlterarDadosAluno(this.user.ID, newData)
+    this.apiService.AlterarDadosAluno(1, newData)
   }
 
 }
