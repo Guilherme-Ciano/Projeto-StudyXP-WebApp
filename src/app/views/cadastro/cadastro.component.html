@@ -1,120 +1,123 @@
 <div class="wrapper">
   <img src="/assets/cadastro.svg" class="bg-image">
 
-  <form class="mat-typography form" id="aluno" [formGroup]="formCadastroAluno" (ngSubmit)="fazerCadastroAluno()">
-    
-    <h1 class="mat-typography">Cadastre-se</h1>
-
-    <mat-form-field appearance="outline"> <!-- Ano  -->
-      <mat-label>Cadastrar-se como:</mat-label>
+  <div class="form_wrapper">
+    <form class="mat-typography form" id="aluno" [formGroup]="formCadastroAluno" (ngSubmit)="fazerCadastroAluno()">
+      
+      <h1 class="mat-typography">Cadastre-se</h1>
   
-      <mat-select [(value)]="option" [disabled]="disableSelect.value"> 
-        <mat-option value="1" (click)="changeCadastro()">Aluno</mat-option>
-        <mat-option value="2" (click)="changeCadastro()">Professor</mat-option>
-      </mat-select>
-      
-      <mat-error>Tipo de Cadastro não foi preenchido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline"> <!-- Nome  -->
-      <mat-label>Nome</mat-label>
-      <input type="text" matInput formControlName="Nome">
+      <mat-form-field appearance="outline"> <!-- Ano  -->
+        <mat-label>Cadastrar-se como:</mat-label>
+    
+        <mat-select [(value)]="option" [disabled]="disableSelect.value"> 
+          <mat-option value="1" (click)="changeCadastro()">Aluno</mat-option>
+          <mat-option value="2" (click)="changeCadastro()">Professor</mat-option>
+        </mat-select>
         
-      <mat-error>Nome não foi preenchido</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline"> <!-- Email  -->
-      <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="Email">
-      
-      <mat-error>Email não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline"> <!-- Fone  -->
-      <mat-label>Celular</mat-label>
-      <input type="tel" matInput formControlName="Phone" mask="(00) 00000-0000">
-      
-      <mat-error>Celular não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" id="RA"> <!-- RA  -->
-      <mat-label>RA</mat-label>
-      <input type="text" matInput formControlName="RA" mask="000.000.000-0">
-      
-      <mat-error>RA não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline"> <!-- Senha  -->
-      <mat-label>Senha</mat-label>
-      <input type="password" matInput formControlName="Password">
-      
-      <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" id="ANO"> <!-- Ano  -->
-      <mat-label>Ano</mat-label>
-
-      <mat-select [disabled]="disableSelect.value"> 
-        <mat-option value="1">1° ano</mat-option>
-        <mat-option value="2">2° ano</mat-option>
-        <mat-option value="3">3° ano</mat-option>
-      </mat-select>
-      
-      <mat-error>Ano não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <button mat-flat-button color="primary" class="button" type="submit">Cadastrar-se</button>
-  </form>
-
-  <form class="mat-typography form" id="prof" style="display: none;" [formGroup]="formCadastroProfessor" (ngSubmit)="fazerCadastroProf()">
-    <h1 class="mat-typography">Cadastre-se</h1>
-
-    <mat-form-field appearance="outline"> <!-- Ano  -->
-      <mat-label>Cadastrar-se como:</mat-label>
+        <mat-error>Tipo de Cadastro não foi preenchido</mat-error>
+      </mat-form-field>
   
-      <mat-select [(value)]="option" [disabled]="disableSelect.value"> 
-        <mat-option value="1" (click)="changeCadastro()">Aluno</mat-option>
-        <mat-option value="2" (click)="changeCadastro()">Professor</mat-option>
-      </mat-select>
+      <mat-form-field appearance="outline"> <!-- Nome  -->
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput formControlName="Nome">
+          
+        <mat-error>Nome não foi preenchido</mat-error>
+      </mat-form-field>
       
-      <mat-error>Tipo de Cadastro não foi preenchido</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline"> <!-- Nome  -->
-      <mat-label>Nome</mat-label>
-      <input type="text" matInput formControlName="Nome">
+      <mat-form-field appearance="outline"> <!-- Email  -->
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="Email">
         
-      <mat-error>Nome não foi preenchido</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline"> <!-- Email  -->
-      <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="Email">
+        <mat-error>Email não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
       
-      <mat-error>Email não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field appearance="outline"> <!-- Fone  -->
-      <mat-label>Celular</mat-label>
-      <input type="tel" matInput formControlName="Phone" mask="(00) 00000-0000">
-      
-      <mat-error>Celular não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline"> <!-- Senha  -->
-      <mat-label>Senha</mat-label>
-      <input type="password" matInput formControlName="Password">
-      
-      <mat-error>Senha não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Código da Escola</mat-label>
-      <input type="text" matInput formControlName="codEscola">
+      <mat-form-field appearance="outline"> <!-- Fone  -->
+        <mat-label>Celular</mat-label>
+        <input type="tel" matInput formControlName="Phone" mask="(00) 00000-0000">
         
-      <mat-error>Cod. Escola não foi preenchido ou é inválido</mat-error>
-    </mat-form-field>
+        <mat-error>Celular não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" id="RA"> <!-- RA  -->
+        <mat-label>RA</mat-label>
+        <input type="text" matInput formControlName="RA" mask="000.000.000-0">
+        
+        <mat-error>RA não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline"> <!-- Senha  -->
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="Password">
+        
+        <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" id="ANO"> <!-- Ano  -->
+        <mat-label>Ano</mat-label>
+  
+        <mat-select [disabled]="disableSelect.value"> 
+          <mat-option value="1">1° ano</mat-option>
+          <mat-option value="2">2° ano</mat-option>
+          <mat-option value="3">3° ano</mat-option>
+        </mat-select>
+        
+        <mat-error>Ano não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <button mat-flat-button color="primary" class="button" type="submit">Cadastrar-se</button>
+    </form>
+  
+    <form class="mat-typography form" id="prof" style="display: none;" [formGroup]="formCadastroProfessor" (ngSubmit)="fazerCadastroProf()">
+      <h1 class="mat-typography">Cadastre-se</h1>
+  
+      <mat-form-field appearance="outline"> <!-- Ano  -->
+        <mat-label>Cadastrar-se como:</mat-label>
+    
+        <mat-select [(value)]="option" [disabled]="disableSelect.value"> 
+          <mat-option value="1" (click)="changeCadastro()">Aluno</mat-option>
+          <mat-option value="2" (click)="changeCadastro()">Professor</mat-option>
+        </mat-select>
+        
+        <mat-error>Tipo de Cadastro não foi preenchido</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline"> <!-- Nome  -->
+        <mat-label>Nome</mat-label>
+        <input type="text" matInput formControlName="Nome">
+          
+        <mat-error>Nome não foi preenchido</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline"> <!-- Email  -->
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="Email">
+        
+        <mat-error>Email não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline"> <!-- Fone  -->
+        <mat-label>Celular</mat-label>
+        <input type="tel" matInput formControlName="Phone" mask="(00) 00000-0000">
+        
+        <mat-error>Celular não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline"> <!-- Senha  -->
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="Password">
+        
+        <mat-error>Senha não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Código da Escola</mat-label>
+        <input type="text" matInput formControlName="codEscola">
+          
+        <mat-error>Cod. Escola não foi preenchido ou é inválido</mat-error>
+      </mat-form-field>
+  
+      <button mat-flat-button color="primary" class="button" type="submit">Cadastrar-se</button>
+    </form>
+  </div>
 
-    <button mat-flat-button color="primary" class="button" type="submit">Cadastrar-se</button>
-  </form>
 </div>

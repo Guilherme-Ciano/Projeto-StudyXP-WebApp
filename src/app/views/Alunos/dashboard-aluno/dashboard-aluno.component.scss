@@ -4,6 +4,7 @@ Header.navbar {
     background-color: var(--white);
     padding: 0;
     height: 3rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.363);
     
     .buttons-wrapper{
         width: 100%;
@@ -38,7 +39,9 @@ Header.navbar {
 
 .wrapper {
     width: 100%;
+    height: 100%;
     padding: 0.5rem;
+    background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }
 
 .header-pannel {
@@ -55,7 +58,7 @@ Header.navbar {
     
         align-items: center;
     
-        background-color: aliceblue;
+        background-color: rgb(253, 253, 253);
 
         margin-bottom: 1rem;
 
@@ -128,7 +131,7 @@ Header.navbar {
     
         align-items: center;
     
-        background-color: aliceblue;
+        background-color: rgb(255, 255, 255);
 
         h1 {
             width: 100%;
@@ -235,7 +238,9 @@ Header.navbar {
         z-index: 1;
         background: inherit;
         overflow: hidden;
+        display: block;
         justify-content: center;
+        align-content: center;
       
       &:before {
         content: "";
@@ -249,6 +254,20 @@ Header.navbar {
         box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
         filter: blur(5px);
         margin: -20px;
+      }
+
+      .img{
+          padding: 1rem;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          width: 30rem;
+      }
+
+      h3 {
+          text-align: center;
+          font-weight: bold;
+          color: white;
       }
 }
 

@@ -7,5 +7,6 @@
     z-index: -1;
     height: 100%;
 
-    background-image: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
+    background-image: var(--white);
+    // linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }

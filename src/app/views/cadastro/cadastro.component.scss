@@ -2,18 +2,26 @@
     width: 98vw;
     display: flex;
     justify-content: center;
+    padding: 2rem;
 }
 .bg-image{
     height: 37rem;
-    width: 40rem;
+    width: 35rem;
     margin: 2rem;
     margin-right: 5rem;
+}
+.form_wrapper{
+    width: 31rem;
+    height: fit-content;
+    position: relative;
+    background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
+    border-radius: 8px;
 }
 .form {
     display: flex;
     flex-direction: column;
     width: 30rem;
-    margin: 2rem;
+    margin: 0.5rem;
     margin-right: -5rem;
 
     justify-content: center;
