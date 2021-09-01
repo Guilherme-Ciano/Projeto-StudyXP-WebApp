@@ -26,7 +26,7 @@
 
         <div class="text-wrappers">
             <form class="mat-typography form" [formGroup]="formAlteracaoNome" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoNome.value)">
-                <h3>Nome Atual: user.Nome</h3>
+                <h3>Nome Atual:</h3>
                 <mat-form-field class="CampoParaDigitar" appearance="outline"> <!-- Nome  -->
                     <mat-label>Nome</mat-label>
                     <input type="text" matInput formControlName="nome">
@@ -40,8 +40,8 @@
             <form class="mat-typography form" [formGroup]="formAlteracaoPhone" (ngSubmit)="AlterarDadosDoAluno(formAlteracaoPhone.value)">
                 <h3>Telefone Atual:</h3>
                 <mat-form-field class="CampoParaDigitar" appearance="outline"> <!-- Email  -->
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput formControlName="phone">
+                    <mat-label>Telefone</mat-label>
+                    <input type="phone" matInput formControlName="phone">
                     
                     <mat-error>Phone não foi preenchido ou é inválido</mat-error>
                 </mat-form-field>
