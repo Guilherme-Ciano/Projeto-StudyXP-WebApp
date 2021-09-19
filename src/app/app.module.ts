@@ -34,6 +34,7 @@ import { SidemenuComponent } from './views/sidemenu/sidemenu.component';
 import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AdminComponent } from './views/admin/admin.component';
     CriarTarefaComponent,
     PageNotFoundComponent,
     AdminComponent,
+    WelcomeScreenComponent,
   ],
   imports: [
     BrowserModule,
