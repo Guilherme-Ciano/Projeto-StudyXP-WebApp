@@ -9,9 +9,11 @@ import { HomeComponent } from './views/home/home.component';
 import { ConfigProfComponent } from './views/Professores/config-prof/config-prof.component';
 import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tarefa.component';
 import { DashboardProfComponent } from './views/Professores/dashboard-prof/dashboard-prof.component';
+import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: WelcomeScreenComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cadastro', component:  CadastroComponent},
 
   { path: 'admin', component: AdminComponent},
