@@ -26,7 +26,7 @@
 
         <div class="text-wrappers">
 
-            <h3>Nome Atual:</h3>
+            <h3>Nome Atual: {{user.Nome}}</h3>
             <mat-form-field appearance="outline"> <!-- Nome  -->
                 <mat-label>Nome</mat-label>
                 <input type="text" matInput formControlName="Nome">
@@ -34,7 +34,7 @@
                 <mat-error>Nome não foi preenchido</mat-error>
             </mat-form-field>
 
-            <h3>Email Atual:</h3>
+            <h3>Email Atual: {{user.Email}}</h3>
             <mat-form-field appearance="outline"> <!-- Email  -->
                 <mat-label>Email</mat-label>
                 <input type="email" matInput formControlName="Email" placeholder="">
