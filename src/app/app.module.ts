@@ -35,6 +35,7 @@ import { CriarTarefaComponent } from './views/Professores/criar-tarefa/criar-tar
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
+import { DownloadComponent } from './views/download/download.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.componen
     PageNotFoundComponent,
     AdminComponent,
     WelcomeScreenComponent,
+    DownloadComponent,
   ],
   imports: [
     BrowserModule,
