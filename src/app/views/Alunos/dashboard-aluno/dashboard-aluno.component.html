@@ -1,91 +1,120 @@
-<header class="navbar">
-    <div class="buttons-wrapper">
-        <a routerLink="/aluno/dashboard" class="button">
-            <mat-icon class="material-icons-outlined">home</mat-icon>
-        </a>
-        
-        <a routerLink="/aluno/config" class="button">
-            <mat-icon class="material-icons-outlined">perm_identity</mat-icon>
-        </a>
-
-        <a (click)="logout()" class="button last-child" style="cursor: pointer;">
-            <mat-icon class="material-icons-outlined">logout</mat-icon>
-        </a>
-    </div>
-</header>
-
-<div class="wrapper">
-    <div class="header-pannel">
-    
-        <mat-card>
-            <div mat-card-avatar class="avatar-icon"></div>
-            <mat-card-title>
-                <h1>{{user.Nome}}</h1>
-            </mat-card-title>
-        
-            <mat-card-subtitle>
-                <div class="nivel">
-                    <h2>Nível:</h2>
-                    <h2 class="level_Number">{{user.Level}}</h2>
-                </div>
-            </mat-card-subtitle>
-
-        </mat-card>
-    </div>
-    
-    <div *ngIf="tarefas.length > 0">
-        <div class="act-pannel" *ngFor="let tarefa of tarefas">
-            <mat-accordion class="tarefa">
-                <mat-expansion-panel>
-                    
-                    <mat-expansion-panel-header>
-                        
-                        <mat-panel-title>
-                            <h1>{{tarefa.titulo}}</h1>
-                            <h3>{{tarefa.limite_data | date: 'dd/MM'}}</h3>
-                        </mat-panel-title>
-                        
-                    </mat-expansion-panel-header>
-                    
-                    <hr>
-                    <div class="content">
-                        <p>{{tarefa.descricao}}</p>
-                        <h4>+{{tarefa.xp}}xp</h4>
-                    </div>
-        
-                    <div class="anexos">
-                        <div class="anexo_card">
-                            <mat-icon>attach_file</mat-icon>
-                            <h4>Docs.word</h4>
-                        </div>
-        
-                        <div class="anexo_card">
-                            <mat-icon>attach_file</mat-icon>
-                            <h4>Docs.word</h4>
-                        </div>
-        
-                        <div class="anexo_card">
-                            <mat-icon>attach_file</mat-icon>
-                            <h4>Docs.word</h4>
-                        </div>
-                    </div>
-        
-                    <div class="buttons_box">
-                        <button id="anx"><mat-icon>attach_file</mat-icon></button>
-                        <button id="fim" (click)="concluirTarefa(tarefa.id)"><mat-icon>done</mat-icon></button>
-                    </div>
-        
-                </mat-expansion-panel>
-            </mat-accordion>
+<div class="View">
+  <div id="bnt0" class="collapse">
+    <div class="sidemenu_Wrapper">
+      <a data-toggle="collapse" data-target="#bnt0" class="fechar">
+        <mat-icon class="material-icons-outlined">close</mat-icon>
+        Fechar
+      </a>
+      <div class="headerUser">
+        <img
+          src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"
+          class="avatarPicture"
+        />
+        <h1>Guilherme Ciano</h1>
+        <div class="nivel">
+          <h2>Nível: 32</h2>
         </div>
+      </div>
+
+      <div class="content">
+        <div class="buttons live">
+          <a href="" class="bnt">Live <mat-icon>live_tv</mat-icon></a>
+        </div>
+        <div class="buttons chat">
+          <a href="" class="bnt">
+            LiveChat <mat-icon>question_answer</mat-icon></a
+          >
+        </div>
+        <div data-toggle="collapse" data-target="#bnt1" class="buttons">
+          <a class="bnt"> Tarefas <mat-icon>arrow_drop_down</mat-icon></a>
+
+          <div id="bnt1" class="collapse">
+            <div class="subBnt">
+              <a href="">
+                Tarefas pendentes
+                <mat-icon class="material-icons-outlined">timer</mat-icon></a
+              >
+              <a href=""> Tarefas concluídas <mat-icon>done</mat-icon></a>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <a data-toggle="collapse" data-target="#bnt2" class="bnt">
+            Configurações
+            <mat-icon>arrow_drop_down</mat-icon>
+          </a>
+
+          <div id="bnt2" class="collapse">
+            <div class="subBnt">
+              <a routerLink="/aluno/config">
+                Editar informações
+                <mat-icon class="material-icons-outlined">edit</mat-icon></a
+              >
+              <a (click)="logout()" href="">
+                Logout
+                <mat-icon class="material-icons-outlined">logout</mat-icon></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <a data-toggle="collapse" data-target="#bnt0" class="toggleBnt">
+      <mat-icon>view_headline</mat-icon>
+    </a>
+    <div *ngIf="tarefas.length > 0">
+      <div class="act-pannel" *ngFor="let tarefa of tarefas">
+        <mat-accordion class="tarefa">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h1>{{ tarefa.titulo }}</h1>
+                <h3>{{ tarefa.limite_data | date: "dd/MM" }}</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <hr />
+            <div class="content">
+              <p>{{ tarefa.descricao }}</p>
+              <h4>+{{ tarefa.xp }}xp</h4>
+            </div>
+
+            <div class="anexos">
+              <div class="anexo_card">
+                <mat-icon>attach_file</mat-icon>
+                <h4>Docs.word</h4>
+              </div>
+
+              <div class="anexo_card">
+                <mat-icon>attach_file</mat-icon>
+                <h4>Docs.word</h4>
+              </div>
+
+              <div class="anexo_card">
+                <mat-icon>attach_file</mat-icon>
+                <h4>Docs.word</h4>
+              </div>
+            </div>
+
+            <div class="buttons_box">
+              <button id="anx"><mat-icon>attach_file</mat-icon></button>
+              <button id="fim" (click)="concluirTarefa(tarefa.id)">
+                <mat-icon>done</mat-icon>
+              </button>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
     </div>
 
     <div *ngIf="tarefas.length <= 0">
-        <div class="glassPannel">
-            <img class="img" src="assets/empty.png" alt="">
-            <h3>Descanse, no momento não há tarefas</h3>
-        </div>
+      <div class="glassPannel">
+        <img class="img" src="assets/empty.png" alt="" />
+        <h3>Descanse, no momento não há tarefas</h3>
+      </div>
     </div>
-
-    
+  </div>
 </div>
