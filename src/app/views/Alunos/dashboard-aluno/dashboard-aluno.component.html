@@ -1,5 +1,5 @@
 <div class="View">
-  <div id="bnt0" class="collapse">
+  <div id="bnt0" class="collapse show">
     <div class="sidemenu_Wrapper">
       <a data-toggle="collapse" data-target="#bnt0" class="fechar">
         <mat-icon class="material-icons-outlined">close</mat-icon>
@@ -10,9 +10,9 @@
           src="https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png"
           class="avatarPicture"
         />
-        <h1>Guilherme Ciano</h1>
+        <h1>{{ user.Nome }}</h1>
         <div class="nivel">
-          <h2>Nível: 32</h2>
+          <h2>Xp: {{ user.Level }}</h2>
         </div>
       </div>
 

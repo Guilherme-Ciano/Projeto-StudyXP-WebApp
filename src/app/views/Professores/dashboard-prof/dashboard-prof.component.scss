@@ -1,385 +1,375 @@
-Header.navbar {
+.sidemenu_Wrapper {
+  width: 16rem;
+  height: 100%;
+
+  background: #060b3a;
+
+  display: flex;
+  flex-direction: column;
+
+  .fechar {
     display: flex;
-    flex-direction: row;
-    background-color: var(--white);
-    padding: 0;
-    height: 3rem;
-    
-    .buttons-wrapper{
-        width: 100%;
-        height: 100%;
-        justify-content: flex-start;
-        display: flex;
+    align-items: center;
 
-        .button{
-            padding-left: 0.2rem;
-            width: 3rem;
-            justify-content: space-around;
-            align-content: center;
-            text-align: center;
-            gap: 10rem;
+    justify-content: space-between;
 
-            mat-icon{
-                width: 100%;
-                height: 95%;
-                font-size: 2rem;
-                padding: 0.3rem;
-                color: var(--contrast-background-color);
-                transition: 100ms;
+    width: 100%;
+    padding: 1rem;
 
-                &:hover {
-                    color: var(--blue);
-                    border-bottom: 2.5px solid var(--blue);
-                }
-            }    
-        }
+    background: #090f49;
+    color: white;
+    text-decoration: none;
+  }
+
+  .headerUser {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    color: White;
+
+    .avatarPicture {
+      width: 8rem;
     }
+
+    h1 {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-weight: bold;
+      margin-bottom: 0rem;
+    }
+
+    h2 {
+      margin-bottom: 0rem;
+    }
+  }
+
+  .content {
+    margin-top: 0rem;
+
+    .live {
+      a {
+        color: rgb(235, 112, 112) !important;
+      }
+    }
+
+    .chat {
+      a {
+        color: rgb(99, 212, 99) !important;
+      }
+    }
+
+    .buttons {
+      width: 100%;
+
+      a.bnt {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+
+        align-items: center;
+        color: white;
+
+        text-decoration: none;
+
+        background: #151d68;
+      }
+
+      .subBnt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+          display: flex;
+          align-items: center;
+
+          justify-content: space-between;
+
+          width: 100%;
+          padding: 1rem;
+          padding-left: 2rem;
+
+          background: #2d389b;
+          color: lightsalmon;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+a {
+  transition: 500ms;
+}
+a:hover {
+  filter: saturate(150%);
+}
+
+.View {
+  display: flex;
+  height: 100%;
 }
 
 .wrapper {
-    width: 100%;
-    height: 100vh;
-    padding: 0.5rem;
-    background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
-}
+  width: 100%;
+  height: 100%;
 
-.header-pannel {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  a {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 7rem;
+    justify-content: end;
 
-    mat-card {
-        display: flex;
-        flex-direction: row;
-    
-        width: 100%;
-    
-        align-items: center;
-    
-        background-color: aliceblue;
+    padding: 1rem;
 
-        margin-bottom: 1rem;
+    color: white;
 
-        .avatar-icon{
-            height: 5rem;
-            width: 5rem;
-
-            margin-right: 1rem;
-
-            background-image: url('https://www.pngkit.com/png/full/281-2812821_user-account-management-logo-user-icon-png.png');
-            background-size: cover;
-        }
-    
-        mat-card-title {
-            width: 50%;
-            h1 {
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-weight: 200;
-                margin: 0;
-    
-            }
-            
-            h3 {
-                margin: 0;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                font-weight: 100;
-            }
-        }
-
-        mat-card-subtitle {
-            display: flex;
-            width: inherit;
-            justify-content: flex-end;
-        }
+    mat-icon {
+      font-size: 20pt;
     }
-    
-    mat-card.animated-card {
-        width: 100%;
-        align-content: center;
-        background-image: linear-gradient(-45deg, var(--blue), var(--light-blue));
-        height: 7rem;
-    
-        mat-icon {
-            position: relative;
-            top: -1.2rem;
-            font-size: 4rem;
-            bottom: 1.6rem;
-            color: #fefefe59;
-        }
-    
-        .content {
-            display: flex;
-            flex-direction: column;
-    
-            align-content: center;
-    
-            margin-left: 80%;
-    
-            mat-card-title{
-                color: rgb(255, 255, 255);
-                text-align: center;
-                align-content: center;
-                justify-content: center;
-                margin: 0;
-                margin-bottom: 1rem;
-                margin-top: 1.3rem;
-    
-                h2 {
-                    font-size: 2.5rem;
-                    font-weight: 300;
-                    margin: 0;
-                    margin-left: -30px;
-                    margin-top: 40%;
-                }
-            }
-    
-            mat-card-subtitle{
-                color: rgb(255, 255, 255);
-                position: relative;
-                right: 2.5rem;
-                top: -20px;
-                font-style: italic;
-                text-transform: capitalize;
-                opacity: 0.5;
-                display: block;
-                font-size: 0.6rem;
-            }
-        }
-    }
-}
-
-.buttonAddTarefa{
-    position: fixed;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
-    width: 100%;
-    top: 80%;
-    z-index: 90;
-
-    button {
-        margin-right: 1rem;
-        transition: 600ms;
-
-        background-color: var(--light-blue);
-
-        &:hover{
-            background-color: var(--blue);
-        }
-    }
-}
-
-.limparTarefas {
-    button {
-        border: none;
-        display: flex;
-        color: red;
-        opacity: 0.3;
-        height: auto;
-        transition: 600ms;
-
-        &:hover {
-            opacity: 0.9;
-        }
-    }
-
-    p {
-        margin: 0;
-        font-size: 10pt;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        width: max-content;
-    }
-}
-
-.act-pannel{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    mat-expansion-panel{
-        width: 100%;
-
-        margin-bottom: 1rem;
-    
-        align-items: center;
-    
-        background-color: aliceblue;
-
-        h1 {
-            width: 100%;
-            margin: 0;
-        }
-
-        h3{
-            margin-bottom: 0rem;
-            border-radius: 8px;
-            
-            background-color: var(--bs-red);
-            padding: 5px;
-            font-weight: bold;
-            color: antiquewhite;
-
-            justify-content: flex-end;
-        }
-
-        hr {
-            margin-top: 0rem;
-        }
-        .content {
-            display: flex;
-            flex-direction: row;
-            gap: 15rem;
-            h4 {
-                width: max-content;
-                height: max-content;
-                background-color: var(--grad_end_green);
-                padding: 5px;
-                font-weight: bold;
-                border-radius: 8px;
-                font-size: 9pt;
-                margin: 0;
-            }
-        }
-
-        .anexos {
-            display: flex;
-            flex-direction: row;
-
-            .anexo_card{
-                width: 10%;
-                display: flex;
-                flex-direction: row;
-                background-color: rgb(94, 149, 204);
-
-                margin-right: .5rem;
-
-                padding: .1rem;
-                border-radius: 1rem;
-
-                font-size: 5pt;
-                
-                justify-content: center;
-                align-content: center;
-
-                color: white;
-
-                h4 {
-                    margin: 0;
-                }
-            }
-        }
-
-        .buttons_box {
-            display: flex;
-            flex-direction: row;
-            width: 20%;
-            margin-left: 80%;
-
-            button {
-                padding: .5rem;
-                width: 100%;
-
-                border-radius: .1rem;
-                border: none;
-
-                font-weight: 200;
-                font-size: 12pt;
-                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-                color: aliceblue;
-
-                cursor: pointer;
-            }
-
-            button#anx{
-                background-color: var(--blue);
-                margin-right: 5px;
-            }
-
-            button#fim{
-                background-color: var(--dark-blue);
-            }
-        }
-
-        .limparTarefas {
-            justify-content: flex-end;
-            display: flex;
-        }
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    mat-card-title {
-        h1 {
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-weight: 200;
-            margin: 0;
-            padding-bottom: -1rem;
-            font-size: 16pt;
-            width: fit-content;
-
-        }
-    }
-
-    .act-pannel {
-        mat-panel-title {
-            align-items: center;
-            display: grid;
-            grid-template-columns: 2fr 0.5fr;
-            width: 100%;
-
-            h1 {
-                font-size: 16pt !important;
-                height: fit-content;
-            }
-
-            h3 {
-                margin-left: 0rem;
-                margin-bottom: 0rem;
-                border-radius: 0;
-
-                height: fit-content;
-                
-                background-color: var(--bs-red);
-                padding: 2px;
-
-                text-align: center;
-                font-weight: bold;
-                color: antiquewhite;
-            }
-
-        }
-        .content {
-            width: 100%;
-            gap: 1rem !important;
-        }
-
-        .anexos {
-            display: grid !important;
-            grid-template-columns: 0.3fr 0.3fr !important;
-
-            gap: 0.5rem;
-            .anexo_card {
-                width: fit-content !important;
-                padding: .3rem !important;
-            }
-        }
-
-        .buttons_box {
-            width: 100%;
-            margin-left: 0;
-            justify-content: flex-end;
-
-            button {
-                padding: .2rem;
-            }
-        }
-    }
+  }
+  //background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
 }
 
 .buttonAddTarefa {
+  position: fixed;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 100%;
+  top: 80%;
+  z-index: 90;
+
+  button {
+    margin-right: 1rem;
+    transition: 600ms;
+
+    background-color: var(--light-blue);
+
+    &:hover {
+      background-color: var(--blue);
+    }
+  }
+}
+
+.limparTarefas {
+  button {
+    border: none;
+    display: flex;
+    color: red;
+    opacity: 0.3;
+    height: auto;
+    transition: 600ms;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 10pt;
+    display: flex;
+    align-content: center;
     justify-content: center;
+    width: max-content;
+  }
+}
+
+.act-pannel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  mat-expansion-panel {
+    width: 100%;
+
+    margin-bottom: 1rem;
+
+    align-items: center;
+
+    background-color: aliceblue;
+
+    h1 {
+      width: 100%;
+      margin: 0;
+    }
+
+    h3 {
+      margin-bottom: 0rem;
+      border-radius: 8px;
+
+      background-color: var(--bs-red);
+      padding: 5px;
+      font-weight: bold;
+      color: antiquewhite;
+
+      justify-content: flex-end;
+    }
+
+    hr {
+      margin-top: 0rem;
+    }
+    .content {
+      display: flex;
+      flex-direction: row;
+      gap: 15rem;
+      h4 {
+        width: max-content;
+        height: max-content;
+        background-color: var(--grad_end_green);
+        padding: 5px;
+        font-weight: bold;
+        border-radius: 8px;
+        font-size: 9pt;
+        margin: 0;
+      }
+    }
+
+    .anexos {
+      display: flex;
+      flex-direction: row;
+
+      .anexo_card {
+        width: 10%;
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(94, 149, 204);
+
+        margin-right: 0.5rem;
+
+        padding: 0.1rem;
+        border-radius: 1rem;
+
+        font-size: 5pt;
+
+        justify-content: center;
+        align-content: center;
+
+        color: white;
+
+        h4 {
+          margin: 0;
+        }
+      }
+    }
+
+    .buttons_box {
+      display: flex;
+      flex-direction: row;
+      width: 20%;
+      margin-left: 80%;
+
+      button {
+        padding: 0.5rem;
+        width: 100%;
+
+        border-radius: 0.1rem;
+        border: none;
+
+        font-weight: 200;
+        font-size: 12pt;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        color: aliceblue;
+
+        cursor: pointer;
+      }
+
+      button#anx {
+        background-color: var(--blue);
+        margin-right: 5px;
+      }
+
+      button#fim {
+        background-color: var(--dark-blue);
+      }
+    }
+
+    .limparTarefas {
+      justify-content: flex-end;
+      display: flex;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  mat-card-title {
+    h1 {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-weight: 200;
+      margin: 0;
+      padding-bottom: -1rem;
+      font-size: 16pt;
+      width: fit-content;
+    }
+  }
+
+  .act-pannel {
+    mat-panel-title {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 2fr 0.5fr;
+      width: 100%;
+
+      h1 {
+        font-size: 16pt !important;
+        height: fit-content;
+      }
+
+      h3 {
+        margin-left: 0rem;
+        margin-bottom: 0rem;
+        border-radius: 0;
+
+        height: fit-content;
+
+        background-color: var(--bs-red);
+        padding: 2px;
+
+        text-align: center;
+        font-weight: bold;
+        color: antiquewhite;
+      }
+    }
+    .content {
+      width: 100%;
+      gap: 1rem !important;
+    }
+
+    .anexos {
+      display: grid !important;
+      grid-template-columns: 0.3fr 0.3fr !important;
+
+      gap: 0.5rem;
+      .anexo_card {
+        width: fit-content !important;
+        padding: 0.3rem !important;
+      }
+    }
+
+    .buttons_box {
+      width: 100%;
+      margin-left: 0;
+      justify-content: flex-end;
+
+      button {
+        padding: 0.2rem;
+      }
+    }
+  }
+}
+
+.buttonAddTarefa {
+  justify-content: center;
 }

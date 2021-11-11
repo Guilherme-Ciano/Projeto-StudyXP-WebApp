@@ -9,65 +9,80 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 @Component({
   selector: 'app-dashboard-aluno',
   templateUrl: './dashboard-aluno.component.html',
-  styleUrls: ['./dashboard-aluno.component.scss']
+  styleUrls: ['./dashboard-aluno.component.scss'],
 })
 export class DashboardAlunoComponent implements OnInit {
-
   user = {
-    Nome: "",
-    Ano: "",
-    RA: "",
-    Level: "",
-  }
+    Nome: '',
+    Ano: '',
+    RA: '',
+    Level: '',
+    Id: 0,
+  };
 
-  tarefas: []
+  tarefas: [];
 
   constructor(
-    private router: Router, 
-    private snackbar:SnackbarService,
+    private router: Router,
+    private snackbar: SnackbarService,
     private criptoService: CriptografiaService,
     private sair: LogoutService,
     private apiService: ApiServiceService
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("logSession") !== null){
-      if ((localStorage.getItem("Raw_Data")) === 'undefined' || !localStorage.getItem("Raw_Data")){
-        this.router.navigate(['/'])
-        this.snackbar.error('Dados inválidos!')
+    if (sessionStorage.getItem('logSession') !== null) {
+      if (
+        localStorage.getItem('Raw_Data') === 'undefined' ||
+        !localStorage.getItem('Raw_Data')
+      ) {
+        this.router.navigate(['/']);
+        this.snackbar.error('Dados inválidos!');
       }
 
-      let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
-      let jsonData = JSON.parse(rawData)
-      
+      let rawData = this.criptoService.descriptografar(
+        localStorage.getItem('Raw_Data'),
+        'md5'
+      );
+      let jsonData = JSON.parse(rawData);
+
+      // console.log(jsonData[0]);
+
       this.user = {
-        Nome: jsonData.nome,
-        Ano: jsonData.grade,
-        Level: jsonData.level,
-        RA: jsonData.ra,
-      }
+        Nome: jsonData[0].nome,
+        Ano: jsonData[0].grade,
+        Level: jsonData[0].level,
+        RA: jsonData[0].ra,
+        Id: jsonData[0].id,
+      };
 
-      this.snackbar.success('Bem-vindo ' + this.user.Nome + '!')
+      this.snackbar.success('Bem-vindo, ' + this.user.Nome + '!');
     } else {
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
     }
 
-    this.getTarefas()
+    this.getTarefas();
   }
 
   // * Pegando as tarefas
-  async getTarefas(){
-    await axios.get('http://localhost:9090/alunos/tarefas/tarefaspendentes')
-    .then((data) => {
-      this.tarefas = data.data;
-    })
+  async getTarefas() {
+    await axios
+      .get('http://localhost:9090/alunos/tarefas/tarefaspendentes')
+      .then((data) => {
+        this.tarefas = data.data;
+      });
   }
 
-  async concluirTarefa(id){
-    await this.apiService.EnviarTarefa(id)
+  async concluirTarefa(id) {
+    await this.apiService.EnviarTarefa(id);
+    let newLevel = this.user.Level + 1;
+    let update = {
+      level: newLevel,
+    };
+    await this.apiService.AlterarDadosAluno(this.user.Id, update);
   }
 
-  logout(){
-    this.sair.logout()
+  logout() {
+    this.sair.logout();
   }
 }

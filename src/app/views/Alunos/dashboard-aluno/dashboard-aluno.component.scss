@@ -92,6 +92,7 @@
 
           width: 100%;
           padding: 1rem;
+          padding-left: 2rem;
 
           background: #2d389b;
           color: lightsalmon;
@@ -100,6 +101,13 @@
       }
     }
   }
+}
+
+a {
+  transition: 500ms;
+}
+a:hover {
+  filter: saturate(150%);
 }
 
 .View {
@@ -136,9 +144,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  padding-left: 10rem;
-  padding-right: 10rem;
 
   mat-expansion-panel {
     width: 100%;

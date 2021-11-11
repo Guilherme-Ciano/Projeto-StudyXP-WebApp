@@ -3,81 +3,99 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import axios from 'axios';
 import { CriptografiaService } from 'src/app/services/criptografia.service';
-import { SnackbarService} from 'src/app/services/snackbar.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { DialogService } from './../../../services/dialog.service';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { LogoutService } from 'src/app/services/logout.service';
 
 @Component({
   selector: 'app-dashboard-prof',
   templateUrl: './dashboard-prof.component.html',
-  styleUrls: ['./dashboard-prof.component.scss']
+  styleUrls: ['./dashboard-prof.component.scss'],
 })
 export class DashboardProfComponent implements OnInit {
-
   user = {
-    Nome: "",
-  }
+    Nome: '',
+  };
 
   tarefas: [];
 
   constructor(
-    private router: Router, 
-    private snackbar:SnackbarService,
+    private router: Router,
+    private snackbar: SnackbarService,
     private criptoService: CriptografiaService,
     private dialog: DialogService,
-    private apiService: ApiServiceService
-    ) { }
+    private apiService: ApiServiceService,
+    private sair: LogoutService
+  ) {}
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("logSession") !== null){
-      if ((localStorage.getItem("Raw_Data")) === 'undefined'){
-        this.router.navigate(['/'])
-        this.snackbar.error('Dados inválidos!')
+    if (sessionStorage.getItem('logSession') !== null) {
+      if (localStorage.getItem('Raw_Data') === 'undefined') {
+        this.router.navigate(['/']);
+        this.snackbar.error('Dados inválidos!');
       }
 
-      let rawData = this.criptoService.descriptografar(localStorage.getItem('Raw_Data'), 'md5')
-      let jsonData = JSON.parse(rawData)
-      
+      let rawData = this.criptoService.descriptografar(
+        localStorage.getItem('Raw_Data'),
+        'md5'
+      );
+      let jsonData = JSON.parse(rawData);
+
       this.user = {
-        Nome: jsonData.nome,
-      }
+        Nome: jsonData[0].nome,
+      };
 
       this.getTarefas();
 
-      this.snackbar.success('Bem-vindo ' + this.user.Nome + '!')
+      this.snackbar.success('Bem-vindo ' + this.user.Nome + '!');
     } else {
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
     }
   }
 
-  public async getTarefas(){
-    await axios.get("http://localhost:9090/professores/tarefas/index")
-    .then((data) => {
-      this.tarefas = data.data;
-    })
+  public async getTarefas() {
+    await axios
+      .get('http://localhost:9090/professores/tarefas/index')
+      .then((data) => {
+        this.tarefas = data.data;
+      });
   }
 
-  criarTarefa(){
-    this.dialog.openDialog()
+  criarTarefa() {
+    this.dialog.openDialog();
   }
 
-  async limparTarefas(){
-    await axios.get("http://localhost:9090/professores/tarefas/clearall")
-    .then((resposta) => {
-      this.snackbar.success(resposta.data.status + "! \n" + resposta.data.message + '!')
-      this.apiService.refresh()
-    })
+  async limparTarefas() {
+    await axios
+      .get('http://localhost:9090/professores/tarefas/clearall')
+      .then((resposta) => {
+        this.snackbar.success(
+          resposta.data.status + '! \n' + resposta.data.message + '!'
+        );
+        this.apiService.refresh();
+      });
   }
 
-  async apagarTarefa(id: number){
+  async apagarTarefa(id: number) {
     let apagarTarefa = {
-      'id': id 
-    }
+      id: id,
+    };
 
-    await axios.post("http://localhost:9090/professores/tarefas/clearunique", apagarTarefa)
-    .then((resposta) => {
-      this.snackbar.success(resposta.data.status + "! \n" + resposta.data.message + '!')
-      this.apiService.refresh()
-    })
+    await axios
+      .post(
+        'http://localhost:9090/professores/tarefas/clearunique',
+        apagarTarefa
+      )
+      .then((resposta) => {
+        this.snackbar.success(
+          resposta.data.status + '! \n' + resposta.data.message + '!'
+        );
+        this.apiService.refresh();
+      });
+  }
+
+  logout() {
+    this.sair.logout();
   }
 }

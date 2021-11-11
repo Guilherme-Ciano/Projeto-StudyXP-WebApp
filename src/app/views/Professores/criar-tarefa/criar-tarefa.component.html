@@ -1,50 +1,81 @@
-
 <h1 mat-dialog-title>Criar Tarefa</h1>
 
 <div class="content" mat-dialog-content>
-    <form class="mat-typography form" [formGroup]="tarefaForm" (ngSubmit)="enviarTarefa()">
-        <mat-form-field appearance="outline">
-            <mat-label>Classe:</mat-label>
-      
-            <mat-select formControlName="classe"> 
-              <mat-option value="1">Classes</mat-option>
-              <mat-option value="2">Classes</mat-option>
-            </mat-select>
-            
-            <mat-error>A classe não foi preenchida</mat-error>
-        </mat-form-field>
-    
-        <mat-form-field appearance="outline">
-        <mat-label>Título:</mat-label>
-        <input type="text" matInput formControlName="titulo">
-            
-        <mat-error>Título não foi preenchido</mat-error>
-        </mat-form-field>
-    
-        <mat-form-field appearance="outline">
-        <mat-label>Descrição:</mat-label>
-        <textarea type="text" matInput formControlName="descricao" id="descricao"></textarea>
-            
-        <mat-error>Descrição não foi preenchido</mat-error>
-        </mat-form-field>
-    
-        <mat-form-field appearance="outline">
-        <mat-label>Data Limite:</mat-label>
-        <input matInput [matDatepicker]="dataLimite" formControlName="limite_data">
-        
-        <mat-datepicker-toggle [for]="dataLimite" ></mat-datepicker-toggle>
-        <mat-datepicker #dataLimite></mat-datepicker>
-            
-        <mat-error>Data limite não foi preenchido</mat-error>
-        </mat-form-field>
-    
-        <mat-form-field appearance="outline">
-        <mat-label>XP:</mat-label>
-        <input type="text" matInput formControlName="xp">
-            
-        <mat-error>Xp não foi preenchido</mat-error>
-        </mat-form-field>
+  <form
+    class="mat-typography form"
+    [formGroup]="tarefaForm"
+    (ngSubmit)="enviarTarefa()"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Classe:</mat-label>
 
-        <button mat-flat-button mat-dialog-close color="primary" class="button" type="submit">Enviar</button>
-    </form>
+      <mat-select formControlName="classe">
+        <mat-option value="1">Classes</mat-option>
+        <mat-option value="2">Classes</mat-option>
+      </mat-select>
+
+      <mat-error>A classe não foi preenchida</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Título:</mat-label>
+      <input type="text" matInput formControlName="titulo" />
+
+      <mat-error>Título não foi preenchido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição:</mat-label>
+      <textarea
+        type="text"
+        matInput
+        formControlName="descricao"
+        id="descricao"
+      ></textarea>
+
+      <mat-error>Descrição não foi preenchido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data Limite:</mat-label>
+      <input
+        matInput
+        [matDatepicker]="dataLimite"
+        formControlName="limite_data"
+      />
+
+      <mat-datepicker-toggle [for]="dataLimite"></mat-datepicker-toggle>
+      <mat-datepicker #dataLimite></mat-datepicker>
+
+      <mat-error>Data limite não foi preenchido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>XP:</mat-label>
+      <input type="text" matInput formControlName="xp" />
+
+      <mat-error>Xp não foi preenchido</mat-error>
+    </mat-form-field>
+
+    <div class="file">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Arquivo:</mat-label>
+        <input type="text" matInput id="fileName" />
+
+        <mat-error>Nome do Arquivo não foi preenchido</mat-error>
+      </mat-form-field>
+
+      <input type="file" (change)="onFileSelected($event)" />
+    </div>
+
+    <button
+      mat-flat-button
+      mat-dialog-close
+      color="primary"
+      class="button"
+      type="submit"
+    >
+      Enviar
+    </button>
+  </form>
 </div>

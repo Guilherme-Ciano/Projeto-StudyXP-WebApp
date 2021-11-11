@@ -9,10 +9,9 @@ import { CriptografiaService } from './../../services/criptografia.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   loginForm: FormGroup;
 
   constructor(
@@ -20,11 +19,11 @@ export class HomeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private criptoService: CriptografiaService
-  ) { 
+  ) {
     this.loginForm = formBuilder.group({
       email: ['', [Validators.required]],
-      password: ['',[Validators.required]]
-    })
+      password: ['', [Validators.required]],
+    });
   }
 
   ngOnInit(): void {
@@ -33,26 +32,29 @@ export class HomeComponent implements OnInit {
   }
 
   public async login() {
-    
-    await axios.post("http://localhost:9090/login", {
-      email: this.loginForm.value.email,
-      password: this.criptoService.criptografarSenhas((this.loginForm.value.password)),
-    })
+    await axios
+      .post('http://localhost:9090/login', {
+        email: this.loginForm.value.email,
+        password: this.criptoService.criptografarSenhas(
+          this.loginForm.value.password
+        ),
+      })
       .then((data) => {
-        let user = data.data
-        localStorage.setItem("Raw_Data", this.criptoService.criptografar(JSON.stringify(user.data), 'md5'))
-        sessionStorage.setItem("logSession", user.hash)
+        let user = data.data;
+        localStorage.setItem(
+          'Raw_Data',
+          this.criptoService.criptografar(JSON.stringify(user.data), 'md5')
+        );
+        sessionStorage.setItem('logSession', user.hash);
 
-        if (user.type === 'A'){
-          this.router.navigate(['/aluno/dashboard'])
-        } else if (user.type === 'P'){
-          this.router.navigate(['/prof/dashboard'])
+        if (user.type === 'A') {
+          this.router.navigate(['/aluno/dashboard']);
+        } else if (user.type === 'P') {
+          this.router.navigate(['/prof/dashboard']);
         }
-        
       })
       .catch((error) => {
-        this.snackbar.error("Erro ao efetuar o Login")
-      })
-    }
-
+        this.snackbar.error('Erro ao efetuar o Login');
+      });
+  }
 }
