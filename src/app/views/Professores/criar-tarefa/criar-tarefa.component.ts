@@ -63,7 +63,7 @@ export class CriarTarefaComponent implements OnInit {
         fileName: filename,
       })
       .then((resposta) => {
-        this.tarefaForm.value.fileLink = resposta;
+        this.tarefaForm.value.fileLink = resposta.data.url;
       });
     await axios.post(
       'http://localhost:9090/professores/tarefas/create',
