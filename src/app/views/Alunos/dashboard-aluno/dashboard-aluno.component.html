@@ -18,10 +18,12 @@
 
       <div class="content">
         <div class="buttons live">
-          <a href="" class="bnt">Live <mat-icon>live_tv</mat-icon></a>
+          <a href="http://localhost:3000/live" target="_blank" class="bnt"
+            >Live <mat-icon>live_tv</mat-icon></a
+          >
         </div>
         <div class="buttons chat">
-          <a href="" class="bnt">
+          <a href="http://localhost:3000/chat" target="_blank" class="bnt">
             LiveChat <mat-icon>question_answer</mat-icon></a
           >
         </div>
@@ -30,11 +32,13 @@
 
           <div id="bnt1" class="collapse">
             <div class="subBnt">
-              <a href="">
+              <a (click)="getTarefas()" routerLink="/aluno/dashboard">
                 Tarefas pendentes
                 <mat-icon class="material-icons-outlined">timer</mat-icon></a
               >
-              <a href=""> Tarefas concluídas <mat-icon>done</mat-icon></a>
+              <a (click)="getTarefasConcluidas()" routerLink="/aluno/dashboard">
+                Tarefas concluídas <mat-icon>done</mat-icon></a
+              >
             </div>
           </div>
         </div>
@@ -84,23 +88,13 @@
 
             <div class="anexos">
               <div class="anexo_card">
-                <mat-icon>attach_file</mat-icon>
-                <h4>Docs.word</h4>
-              </div>
-
-              <div class="anexo_card">
-                <mat-icon>attach_file</mat-icon>
-                <h4>Docs.word</h4>
-              </div>
-
-              <div class="anexo_card">
-                <mat-icon>attach_file</mat-icon>
-                <h4>Docs.word</h4>
+                <a href="{{ tarefa.fileLink }}" target="_blank">
+                  <mat-icon>attach_file</mat-icon>
+                </a>
               </div>
             </div>
 
             <div class="buttons_box">
-              <button id="anx"><mat-icon>attach_file</mat-icon></button>
               <button id="fim" (click)="concluirTarefa(tarefa.id)">
                 <mat-icon>done</mat-icon>
               </button>

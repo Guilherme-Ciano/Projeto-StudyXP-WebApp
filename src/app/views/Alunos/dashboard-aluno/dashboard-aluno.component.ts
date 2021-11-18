@@ -5,6 +5,7 @@ import { CriptografiaService } from './../../../services/criptografia.service';
 import axios from 'axios';
 import { LogoutService } from 'src/app/services/logout.service';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-aluno',
@@ -27,7 +28,8 @@ export class DashboardAlunoComponent implements OnInit {
     private snackbar: SnackbarService,
     private criptoService: CriptografiaService,
     private sair: LogoutService,
-    private apiService: ApiServiceService
+    private apiService: ApiServiceService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -73,6 +75,17 @@ export class DashboardAlunoComponent implements OnInit {
       });
   }
 
+  async getTarefasConcluidas() {
+    console.log('oi');
+    this.tarefas = [];
+    await axios
+      .get('http://localhost:9090/alunos/tarefas/tarefasconcluidas')
+      .then((data) => {
+        this.tarefas = data.data;
+      });
+    this.refresh();
+  }
+
   async concluirTarefa(id) {
     await this.apiService.EnviarTarefa(id);
     let newLevel = this.user.Level + 1;
@@ -80,6 +93,14 @@ export class DashboardAlunoComponent implements OnInit {
       level: newLevel,
     };
     await this.apiService.AlterarDadosAluno(this.user.Id, update);
+  }
+
+  refresh(): void {
+    this.router
+      .navigateByUrl('/refresh', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate([decodeURI(this.location.path())]);
+      });
   }
 
   logout() {
