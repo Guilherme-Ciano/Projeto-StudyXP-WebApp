@@ -1,79 +1,88 @@
-
 mat-grid-tile {
-    background: lightblue;
+  background: lightblue;
 }
 
 main {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  img {
+    border: 2px;
+    width: 22rem;
+  }
+
+  /* Parte lateral de inputs */
+  .right_section {
+    width: 31rem;
+    height: 21.8rem;
+    position: relative;
+    background: linear-gradient(
+      to right,
+      var(--color_init_blue),
+      var(--color_end_blue)
+    );
+    border-radius: 8px;
+  }
+
+  form {
     display: flex;
-    // flex-direction: column;
-    align-items: center;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0.5rem;
+
     justify-content: center;
-    height: 100vh;
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1rem;
 
-    img {
-        border: 2px;
-        width: 22rem;
+    h1 {
+      font-family: "Martel", serif;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+      width: 100%;
     }
 
-    /* Parte lateral de inputs */
-    .right_section{
-        width: 31rem;
-        height: 21.8rem;
-        position: relative;
-        background: linear-gradient(to right, var(--color_init_blue), var(--color_end_blue));
-        border-radius: 8px;
+    h3 {
+      margin-top: 1rem;
+      text-align: center;
     }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 30rem;
-        margin: 0.5rem;
-
-        justify-content: center;
-        background-color: var(--white);
-        border-radius: 8px;
-        padding: 1rem;
-
-        h1{
-            font-family: 'Martel', serif;
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 2rem;
-            width: 100%
-    
-        }
-
-        h3 {
-            margin-top: 1rem;
-            text-align: center;
-        }
-        a {
-            text-align: center;
-            color: blue;
-        }
+    a {
+      text-align: center;
+      color: blue;
     }
-    
-    /* Botões */
-    button{
-        width: 100%;
-    }
+  }
+
+  /* Botões */
+  button {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    main {
-        display: flex;
-        flex-direction: column;
+  main {
+    display: flex;
+    flex-direction: column;
 
-        img {
-            width: 12rem;
-        }
+    padding: 10rem;
 
-        .right_section {
-            width: 31rem;
-        }
+    img {
+      width: 12rem;
     }
+
+    .right_section {
+      width: 22rem;
+      height: 25rem;
+    }
+
+    form {
+      width: 95%;
+    }
+  }
 }
