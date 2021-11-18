@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "electron": "electron .",
+    "start": "concurrently \"ng serve\" \"npm run electron\"",
+    "electron": "electron ./src/electron.main",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
