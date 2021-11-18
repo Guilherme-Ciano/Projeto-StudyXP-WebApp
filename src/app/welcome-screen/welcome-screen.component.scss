@@ -559,11 +559,11 @@ footer {
         justify-content: center;
         align-content: center;
 
-        margin-bottom: -3rem;
-        font-size: 40pt;
+        font-size: 35pt;
       }
       .grid {
         padding: 0;
+        padding-top: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
@@ -677,13 +677,16 @@ footer {
     padding-right: 1rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
+    justify-self: center;
+    justify-content: center;
 
     .info {
       h3 {
         margin: 0;
         font-size: 12pt;
+        text-align: center;
       }
     }
   }
