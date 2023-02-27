@@ -1,6 +1,6 @@
 # StudyXp
 
-## De onde surgiu a idéia ?
+## De onde surgiu a ideia ?
 
 <p>Surgiu apartir de convívio com professores de escola estadual e municipal que alegavam uma grande dificuldade para a utilização do Google Sala de Aula, Google Meet, e CMSP.</p>
 
